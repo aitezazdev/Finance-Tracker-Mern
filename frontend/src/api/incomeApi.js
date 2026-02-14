@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:3000/api";
+const API_URL = import.meta.env.VITE_API_URL;
 
 const api = axios.create({
   baseURL: API_URL,
@@ -18,24 +18,24 @@ api.interceptors.request.use((config) => {
 
 // get incomes
 export const getIncomes = async () => {
-  const response = await api.get("/get-incomes");
+  const response = await api.get("/api/get-incomes");
   return response.data;
 };
 
 // create an income
 export const addIncome = async (income) => {
-  const response = await api.post("/create-income", income);
+  const response = await api.post("/api/create-income", income);
   return response.data;
 };
 
 // delete income
 export const deleteIncome = async (id) => {
-  const response = await api.delete(`/delete-income/${id}`);
+  const response = await api.delete(`/api/delete-income/${id}`);
   return response.data;
 };
 
 // edit income
 export const editIncome = async (id, editData) => {
-  const response = await api.put(`/edit-income/${id}`, editData);
+  const response = await api.put(`/api/edit-income/${id}`, editData);
   return response.data;
 };

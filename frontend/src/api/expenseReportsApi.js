@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const API_URL = "http://localhost:3000/api/summary";
+const API_URL = import.meta.env.VITE_API_URL;
 
 const api = axios.create({
   baseURL: API_URL,
@@ -17,7 +17,7 @@ api.interceptors.request.use((config) => {
 
 // monthly summary
 export const getExpenseMonthlySummary = async () => {
-  const response = await api.get("/monthly");
+  const response = await api.get("/api/summary/monthly");
   console.log(response.data);
   
   return response.data;
@@ -25,12 +25,12 @@ export const getExpenseMonthlySummary = async () => {
 
 // category summary
 export const getExpenseCategorySummary = async () => {
-  const response = await api.get("/category");
+  const response = await api.get("/api/summary/category");
   return response.data;
 };
 
 // spending trends
 export const getExpenseSpendingTrends = async () => {
-  const response = await api.get("/timeline");
+  const response = await api.get("/api/summary/timeline");
   return response.data;
 };
