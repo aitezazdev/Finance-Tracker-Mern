@@ -1,12 +1,29 @@
 import mongoose from "mongoose";
+import { DB_NAME } from "../../constant.js";
 
-const dbConnection = async () => {
-  try {
-    await mongoose.connect(process.env.MONGO_URL);
-    console.log("Database connected");
-  } catch (error) {
-    console.log(error);
+let cached = global.mongoose;
+
+if (!cached) {
+  cached = global.mongoose = { conn: null, promise: null };
+}
+
+export const dbConnection = async () => {
+  if (cached.conn) return cached.conn;
+
+  if (!cached.promise) {
+    cached.promise = mongoose.connect(`${process.env.MONGO_URI}/${DB_NAME}`, {
+      bufferCommands: false,
+    });
   }
-};
 
-export default dbConnection;
+  try {
+    cached.conn = await cached.promise;
+  } catch (error) {
+    cached.promise = null;
+    console.error("MongoDB connection FAILED:", error);
+    process.exit(1);
+  }
+
+  console.log(`MongoDB connected!! Host: ${cached.conn.connection.host}`);
+  return cached.conn;
+};
