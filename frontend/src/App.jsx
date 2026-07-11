@@ -14,6 +14,7 @@ import { useSelector } from "react-redux";
 import Profile from "./pages/Profile";
 import { Toaster } from "react-hot-toast";
 import { ToastContainer } from "react-toastify";
+import TransactionModel from "./components/TransactionModel";
 
 const App = () => {
   const { user } = useSelector((state) => state.auth);
@@ -54,7 +55,7 @@ const App = () => {
     <>
     <ToastContainer />
       <Toaster />
-      <Navbar />
+      <Navbar setShowModal={setShowModal} />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />
@@ -81,6 +82,13 @@ const App = () => {
           <Route path="/analytics" element={<AnalyticsPage />} />
         </Route>
       </Routes>
+      <TransactionModel
+        show={showModal}
+        onClose={() => setShowModal(false)}
+        setExpenses={setExpenses}
+        setIncomes={setIncomes}
+        setActiveTab={setActiveTab}
+      />
     </>
   );
 };

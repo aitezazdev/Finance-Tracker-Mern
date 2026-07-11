@@ -15,7 +15,7 @@ const ExpenseCategoryChart = ({ data }) => {
           <XAxis className="text-sm" dataKey="name" angle={-45} textAnchor="end" height={60} />
           <YAxis className="text-sm" tickFormatter={(value) => `Rs.${value.toLocaleString()}`} />
           <Tooltip formatter={(value) => [`Rs. ${value.toLocaleString()}`, "Amount"]} />
-          <Bar dataKey="value" fill="#10b981" radius={[4, 4, 0, 0]} />
+          <Bar dataKey="value" fill="#6366f1" radius={[4, 4, 0, 0]} />
         </BarChart>
       </ResponsiveContainer>
     </div>

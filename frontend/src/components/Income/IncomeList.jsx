@@ -11,13 +11,17 @@ const IncomeList = ({ incomes, setIncomes }) => {
   };
 
   const handleSave = async () => {
-    const response = await editIncome(editingId, editData);
-    setIncomes((prevIncomes) =>
-      prevIncomes.map((income) =>
-        income._id === editingId ? response.data : income
-      )
-    );
-    setEditingId(null);
+    try {
+      const response = await editIncome(editingId, editData);
+      setIncomes((prevIncomes) =>
+        prevIncomes.map((income) =>
+          income._id === editingId ? response.data : income
+        )
+      );
+      setEditingId(null);
+    } catch (error) {
+      console.error("Error saving income:", error);
+    }
   };
 
   const handleCancel = () => {
@@ -40,29 +44,29 @@ const IncomeList = ({ incomes, setIncomes }) => {
     return (
       <div className="md:hidden space-y-4">
         {incomes.length === 0 ? (
-          <div className="py-6 text-center text-gray-500">
+          <div className="py-8 text-center text-zinc-400 bg-white rounded-2xl border border-zinc-200 shadow-xs">
             No incomes recorded yet.
           </div>
         ) : (
           incomes.map((income) => (
             <div  
               key={income._id}
-              className="bg-white rounded-lg shadow-md p-4 border-l-4 border-blue-500">
+              className="bg-white rounded-2xl shadow-sm p-5 border border-zinc-200 border-l-4 border-l-emerald-500">
               {editingId === income._id ? (
-                <div className="space-y-3">
+                <div className="space-y-4">
                   <div className="flex flex-col">
-                    <label className="text-sm text-gray-600 mb-1">Date</label>
+                    <label className="text-xs font-bold text-zinc-500 mb-1 uppercase tracking-wider">Date</label>
                     <input
                       type="date"
                       value={editData.date}
                       onChange={(e) =>
                         setEditData({ ...editData, date: e.target.value })
                       }
-                      className="w-full px-3 py-2 border rounded"
+                      className="w-full px-3.5 py-2.5 bg-zinc-50 focus:bg-white border border-zinc-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-all text-sm text-zinc-800"
                     />
                   </div>
                   <div className="flex flex-col">
-                    <label className="text-sm text-gray-600 mb-1">
+                    <label className="text-xs font-bold text-zinc-500 mb-1 uppercase tracking-wider">
                       Category
                     </label>
                     <select
@@ -73,7 +77,7 @@ const IncomeList = ({ incomes, setIncomes }) => {
                           category: e.target.value,
                         })
                       }
-                      className="w-full px-3 py-2 border rounded">
+                      className="w-full px-3.5 py-2.5 bg-zinc-50 focus:bg-white border border-zinc-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-all text-sm text-zinc-800">
                       <option value="">Select category</option>
                       <option value="Salary">Salary</option>
                       <option value="Freelance">Freelance</option>
@@ -84,7 +88,7 @@ const IncomeList = ({ incomes, setIncomes }) => {
                     </select>
                   </div>
                   <div className="flex flex-col">
-                    <label className="text-sm text-gray-600 mb-1">
+                    <label className="text-xs font-bold text-zinc-500 mb-1 uppercase tracking-wider">
                       Description
                     </label>
                     <input
@@ -96,11 +100,11 @@ const IncomeList = ({ incomes, setIncomes }) => {
                           description: e.target.value,
                         })
                       }
-                      className="w-full px-3 py-2 border rounded"
+                      className="w-full px-3.5 py-2.5 bg-zinc-50 focus:bg-white border border-zinc-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-all text-sm text-zinc-800"
                     />
                   </div>
                   <div className="flex flex-col">
-                    <label className="text-sm text-gray-600 mb-1">
+                    <label className="text-xs font-bold text-zinc-500 mb-1 uppercase tracking-wider">
                       Amount (Rs. )
                     </label>
                     <input
@@ -112,47 +116,47 @@ const IncomeList = ({ incomes, setIncomes }) => {
                           amount: e.target.value,
                         })
                       }
-                      className="w-full px-3 py-2 border rounded"
+                      className="w-full px-3.5 py-2.5 bg-zinc-50 focus:bg-white border border-zinc-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-all text-sm text-zinc-800"
                     />
                   </div>
-                  <div className="flex justify-end space-x-2 mt-4">
+                  <div className="flex justify-end gap-3 mt-4">
                     <button
                       onClick={handleSave}
-                      className="bg-green-500 cursor-pointer hover:bg-green-600 text-white px-4 py-2 rounded transition">
+                      className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-4 py-2 rounded-xl text-sm transition-all shadow-xs cursor-pointer">
                       Save
                     </button>
                     <button
                       onClick={handleCancel}
-                      className="bg-gray-400 cursor-pointer hover:bg-gray-500 text-white px-4 py-2 rounded transition">
+                      className="bg-white hover:bg-zinc-50 text-zinc-700 border border-zinc-300 font-semibold px-4 py-2 rounded-xl text-sm transition-all shadow-xs cursor-pointer">
                       Cancel
                     </button>
                   </div>
                 </div>
               ) : (
                 <>
-                  <div className="flex justify-between items-center mb-2">
-                    <span className="font-bold text-lg">Rs. {income.amount}</span>
-                    <span className="text-sm text-gray-500">
+                  <div className="flex justify-between items-center mb-3">
+                    <span className="font-black text-emerald-600 text-lg">Rs. {Number(income.amount).toLocaleString()}</span>
+                    <span className="text-xs font-semibold text-zinc-400">
                       {income.date}
                     </span>
                   </div>
-                  <div className="flex items-center mb-2">
-                    <span className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">
+                  <div className="flex items-center mb-3">
+                    <span className="bg-emerald-50 text-emerald-700 text-xs font-bold px-2.5 py-1 rounded-md">
                       {income.category}
                     </span>
                   </div>
-                  <p className="text-gray-700 mb-3">
+                  <p className="text-zinc-600 text-sm mb-4 leading-relaxed">
                     {income.description || "—"}
                   </p>
-                  <div className="flex justify-end space-x-2">
+                  <div className="flex justify-end gap-3 border-t border-zinc-100 pt-3">
                     <button
                       onClick={() => handleEdit(income)}
-                      className="bg-blue-500 cursor-pointer hover:bg-blue-600 text-white px-3 py-1 text-sm rounded transition">
+                      className="bg-white hover:bg-zinc-50 text-zinc-700 border border-zinc-300 font-semibold px-3 py-1.5 text-xs rounded-lg transition-all shadow-xs cursor-pointer">
                       Edit
                     </button>
                     <button
                       onClick={() => handleDelete(income._id)}
-                      className="bg-red-500 cursor-pointer hover:bg-red-600 text-white px-3 py-1 text-sm rounded transition">
+                      className="bg-white hover:bg-red-50 text-red-600 border border-red-200 font-semibold px-3 py-1.5 text-xs rounded-lg transition-all shadow-xs cursor-pointer">
                       Delete
                     </button>
                   </div>
@@ -167,21 +171,21 @@ const IncomeList = ({ incomes, setIncomes }) => {
 
   const renderDesktopView = () => {
     return (
-      <div className="hidden md:block overflow-y-auto max-h-[500px] border rounded-lg">
-        <table className="min-w-full bg-white rounded-lg">
-          <thead className="bg-gray-900 text-white text-lg uppercase sticky top-0">
-            <tr className="text-center">
-              <th className="py-4 px-6">Date</th>
-              <th className="py-4 px-6">Category</th>
-              <th className="py-4 px-6">Description</th>
-              <th className="py-4 px-6">Amount (Rs)</th>
-              <th className="py-4 px-6">Actions</th>
+      <div className="hidden md:block overflow-y-auto max-h-[500px] border border-zinc-200 rounded-2xl shadow-sm">
+        <table className="min-w-full bg-white">
+          <thead className="bg-zinc-50 border-b border-zinc-200 text-zinc-500 text-xs uppercase tracking-wider sticky top-0">
+            <tr className="text-left">
+              <th className="py-4 px-6 font-semibold">Date</th>
+              <th className="py-4 px-6 font-semibold">Category</th>
+              <th className="py-4 px-6 font-semibold">Description</th>
+              <th className="py-4 px-6 font-semibold">Amount (Rs)</th>
+              <th className="py-4 px-6 text-right font-semibold">Actions</th>
             </tr>
           </thead>
-          <tbody className="text-gray-700 text-md">
+          <tbody className="text-zinc-700 text-sm divide-y divide-zinc-100">
             {incomes.length === 0 ? (
               <tr>
-                <td colSpan="5" className="py-6 text-center text-gray-500">
+                <td colSpan="5" className="py-8 text-center text-zinc-400 font-medium">
                   No incomes recorded yet.
                 </td>
               </tr>
@@ -189,22 +193,20 @@ const IncomeList = ({ incomes, setIncomes }) => {
               incomes.map((income) => (
                 <tr
                   key={income._id}
-                  className={`border-b transition Rs. {
-                    index % 2 === 0 ? "bg-gray-100" : "bg-white"
-                  } hover:bg-gray-200`}>
+                  className="hover:bg-zinc-50/50 transition-colors">
                   {editingId === income._id ? (
                     <>
-                      <td className="py-4 px-4 text-center">
+                      <td className="py-3 px-4">
                         <input
                           type="date"
                           value={editData.date}
                           onChange={(e) =>
                             setEditData({ ...editData, date: e.target.value })
                           }
-                          className="w-full px-3 py-2 border rounded"
+                          className="w-full px-3 py-2 bg-zinc-50 focus:bg-white border border-zinc-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-all text-sm text-zinc-800"
                         />
                       </td>
-                      <td className="py-4 px-4 text-center">
+                      <td className="py-3 px-4">
                         <select
                           value={editData.category}
                           onChange={(e) =>
@@ -213,7 +215,7 @@ const IncomeList = ({ incomes, setIncomes }) => {
                               category: e.target.value,
                             })
                           }
-                          className="w-full px-3 py-2 border rounded">
+                          className="w-full px-3 py-2 bg-zinc-50 focus:bg-white border border-zinc-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-all text-sm text-zinc-800">
                           <option value="">Select category</option>
                           <option value="Salary">Salary</option>
                           <option value="Freelance">Freelance</option>
@@ -223,7 +225,7 @@ const IncomeList = ({ incomes, setIncomes }) => {
                           <option value="Others">Others</option>
                         </select>
                       </td>
-                      <td className="py-4 px-4 text-center">
+                      <td className="py-3 px-4">
                         <input
                           type="text"
                           value={editData.description}
@@ -233,10 +235,10 @@ const IncomeList = ({ incomes, setIncomes }) => {
                               description: e.target.value,
                             })
                           }
-                          className="w-full px-3 py-2 border rounded"
+                          className="w-full px-3 py-2 bg-zinc-50 focus:bg-white border border-zinc-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-all text-sm text-zinc-800"
                         />
                       </td>
-                      <td className="py-4 px-4 text-center">
+                      <td className="py-3 px-4">
                         <input
                           type="number"
                           value={editData.amount}
@@ -246,43 +248,45 @@ const IncomeList = ({ incomes, setIncomes }) => {
                               amount: e.target.value,
                             })
                           }
-                          className="w-full px-3 py-2 border rounded text-center"
+                          className="w-full px-3 py-2 bg-zinc-50 focus:bg-white border border-zinc-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-all text-sm text-zinc-800"
                         />
                       </td>
-                      <td className="py-4 px-6 flex justify-center space-x-2">
+                      <td className="py-3 px-6 flex justify-end gap-2 items-center">
                         <button
                           onClick={handleSave}
-                          className="bg-green-500 cursor-pointer hover:bg-green-600 text-white px-6 py-2 rounded transition">
+                          className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-4 py-2 rounded-xl text-sm transition-all shadow-xs cursor-pointer">
                           Save
                         </button>
                         <button
                           onClick={handleCancel}
-                          className="bg-gray-400 cursor-pointer hover:bg-gray-500 text-white px-4 py-2 rounded transition">
+                          className="bg-white hover:bg-zinc-50 text-zinc-700 border border-zinc-300 font-semibold px-4 py-2 rounded-xl text-sm transition-all shadow-xs cursor-pointer">
                           Cancel
                         </button>
                       </td>
                     </>
                   ) : (
                     <>
-                      <td className="py-4 px-4 text-center">{income.date}</td>
-                      <td className="py-4 px-4 text-center">
-                        {income.category}
+                      <td className="py-4 px-6 text-zinc-400 font-medium">{income.date}</td>
+                      <td className="py-4 px-6">
+                        <span className="bg-emerald-50 text-emerald-700 text-xs font-bold px-2.5 py-1 rounded-md">
+                          {income.category}
+                        </span>
                       </td>
-                      <td className="py-4 px-4 text-center">
+                      <td className="py-4 px-6 text-zinc-500 max-w-xs truncate">
                         {income.description || "—"}
                       </td>
-                      <td className="py-4 px-4 text-center font-semibold">
-                        Rs. {income.amount}
+                      <td className="py-4 px-6 font-bold text-zinc-900">
+                        Rs. {Number(income.amount).toLocaleString()}
                       </td>
-                      <td className="py-4 px-6 flex justify-center space-x-2">
+                      <td className="py-4 px-6 flex justify-end gap-2">
                         <button
                           onClick={() => handleEdit(income)}
-                          className="bg-blue-500 cursor-pointer hover:bg-blue-600 text-white px-6 py-2 rounded transition">
+                          className="bg-white hover:bg-zinc-50 text-zinc-700 border border-zinc-300 font-semibold px-3.5 py-1.5 rounded-xl text-sm transition-all shadow-xs cursor-pointer">
                           Edit
                         </button>
                         <button
                           onClick={() => handleDelete(income._id)}
-                          className="bg-red-500 cursor-pointer hover:bg-red-600 text-white px-4 py-2 rounded transition">
+                          className="bg-white hover:bg-red-50 text-red-600 border border-red-200 font-semibold px-3.5 py-1.5 rounded-xl text-sm transition-all shadow-xs cursor-pointer">
                           Delete
                         </button>
                       </td>
@@ -298,7 +302,7 @@ const IncomeList = ({ incomes, setIncomes }) => {
   };
 
   return (
-    <div className="overflow-hidden rounded-lg shadow-md">
+    <div className="w-full">
       {renderMobileView()}
       {renderDesktopView()}
     </div>

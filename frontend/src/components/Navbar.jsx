@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../store/Slices/authSlice";
 import { userInfo } from "../api/userInfoApi";
 
-const Navbar = () => {
+const Navbar = ({ setShowModal }) => {
   const { user } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -69,66 +69,68 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="flex fixed top-0 z-40 w-full items-center justify-between px-4 md:px-12 py-4 bg-gray-900 shadow-md text-white">
+      <nav className="flex fixed top-0 z-40 w-full items-center justify-between px-6 md:px-12 py-4 bg-white/80 backdrop-blur-md border-b border-zinc-200/80 text-zinc-900 shadow-xs">
         <NavLink
           to="/"
-          className="text-xl md:text-3xl font-extrabold tracking-wide flex items-center space-x-2">
-          <span>Finance Tracker</span>
+          className="text-xl font-black tracking-tight flex items-center space-x-2 text-zinc-950">
+          <span>Expensely</span>
         </NavLink>
 
-        <ul className="hidden md:flex items-center space-x-6 text-lg font-medium">
-          <>
-            <li>
-              <NavLink
-                to="/"
-                className={({ isActive }) =>
-                  `hover:text-gray-300 transition duration-200 ${
-                    isActive && `border-b-2 border-b-cyan-600`
-                  }`
-                }>
-                Home
-              </NavLink>
-            </li>
-            <li>
-              {user ? (
-                <span className="flex items-center space-x-4">
-                  <NavLink
-                    to="/dashboard"
-                    className={({ isActive }) =>
-                      `hover:text-gray-300 transition duration-200 ${
-                        isActive && `border-b-2 border-b-cyan-600`
-                      }`
-                    }>
-                    Dashboard
-                  </NavLink>
-                  <NavLink
-                    to="/profile"
-                    className={({ isActive }) =>
-                      `flex items-center justify-center w-10 h-10 rounded-full bg-cyan-600 text-white font-bold text-sm hover:opacity-90 transition duration-200 ${
-                        isActive ? "ring-2 ring-cyan-300" : ""
-                      }`
-                    }>
-                    {getTrimmedName()}
-                  </NavLink>
-                </span>
-              ) : (
+        <ul className="hidden md:flex items-center space-x-2 font-medium">
+          <li>
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                `px-3.5 py-2 rounded-xl text-sm font-semibold transition-all ${
+                  isActive
+                    ? "bg-indigo-50/50 text-indigo-600 border border-zinc-200/40 shadow-xs"
+                    : "text-zinc-600 hover:text-zinc-950 hover:bg-zinc-50"
+                }`
+              }>
+              Home
+            </NavLink>
+          </li>
+          <li>
+            {user ? (
+              <span className="flex items-center space-x-3">
                 <NavLink
-                  to="/login"
-                  className="bg-blue-500 px-5 py-2 rounded-full hover:bg-blue-600 transition duration-200 shadow-md">
-                  Login
+                  to="/dashboard"
+                  className={({ isActive }) =>
+                    `px-3.5 py-2 rounded-xl text-sm font-semibold transition-all ${
+                      isActive
+                        ? "bg-indigo-50/50 text-indigo-600 border border-zinc-200/40 shadow-xs"
+                        : "text-zinc-600 hover:text-zinc-950 hover:bg-zinc-50"
+                    }`
+                  }>
+                  Dashboard
                 </NavLink>
-              )}
-            </li>
-          </>
+                <NavLink
+                  to="/profile"
+                  className={({ isActive }) =>
+                    `flex items-center justify-center w-9 h-9 rounded-full bg-indigo-600 text-white font-extrabold text-xs hover:opacity-90 transition-all border border-indigo-200 shadow-xs ${
+                      isActive ? "ring-2 ring-indigo-500/35" : ""
+                    }`
+                  }>
+                  {getTrimmedName()}
+                </NavLink>
+              </span>
+            ) : (
+              <NavLink
+                to="/login"
+                className="bg-zinc-950 hover:bg-zinc-900 text-white text-sm font-bold px-4 py-2.5 rounded-xl transition-all shadow-xs border border-zinc-900/50 cursor-pointer">
+                Login
+              </NavLink>
+            )}
+          </li>
         </ul>
 
         <button
           onClick={toggleMenu}
-          className="md:hidden p-2"
+          className="md:hidden p-2 text-zinc-700 hover:bg-zinc-100 rounded-xl transition cursor-pointer"
           aria-label="Toggle menu">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6"
+            className="h-5 w-5"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor">
@@ -144,19 +146,19 @@ const Navbar = () => {
 
       <div
         ref={menuRef}
-        className={`fixed top-0 right-0 w-3/4 h-full bg-white z-50 shadow-xl transform transition-transform duration-500 ease-out ${
+        className={`fixed top-0 right-0 w-80 h-full bg-white z-50 shadow-2xl border-l border-zinc-250 transform transition-transform duration-500 ease-out ${
           isMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}>
         <div className="flex flex-col h-full p-6">
-          <div className="flex justify-between items-center mb-8">
-            <span className="text-xl font-bold text-gray-800">Menu</span>
+          <div className="flex justify-between items-center mb-8 border-b border-zinc-100 pb-4">
+            <span className="text-lg font-black text-zinc-950">Menu</span>
             <button
               onClick={toggleMenu}
-              className="text-gray-600 p-2"
+              className="text-zinc-400 hover:text-zinc-700 p-2 rounded-xl hover:bg-zinc-50 transition cursor-pointer"
               aria-label="Close menu">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
+                className="h-5 w-5"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor">
@@ -172,22 +174,22 @@ const Navbar = () => {
 
           {user ? (
             <>
-              <div className="mb-6 p-4 bg-gray-100 rounded-lg">
-                <span className="text-gray-500 block mb-2">Logged in as</span>
-                <span className="text-gray-800 font-medium text-lg">
-                  Hello, {user.name}
+              <div className="mb-6 p-4 bg-zinc-50 border border-zinc-200/60 rounded-2xl">
+                <span className="text-zinc-400 text-xs font-semibold block mb-1">Logged in as</span>
+                <span className="text-zinc-900 font-extrabold text-base">
+                  {user.name}
                 </span>
               </div>
 
-              <ul className="space-y-2 mb-auto">
+              <ul className="space-y-1.5 mb-auto">
                 <li>
                   <NavLink
                     to="/"
                     className={({ isActive }) =>
-                      `block py-3 px-4 rounded-lg transition-all duration-200 ${
+                      `block py-3 px-4 rounded-xl text-sm font-semibold transition-all ${
                         isActive
-                          ? "bg-indigo-100 text-indigo-700 font-semibold"
-                          : "text-gray-700 hover:bg-gray-100"
+                          ? "bg-indigo-50/70 text-indigo-600"
+                          : "text-zinc-500 hover:bg-zinc-50 hover:text-zinc-900"
                       }`
                     }
                     onClick={() => setIsMenuOpen(false)}>
@@ -195,13 +197,24 @@ const Navbar = () => {
                   </NavLink>
                 </li>
                 <li>
+                  <button
+                    onClick={() => {
+                      setShowModal(true);
+                      setIsMenuOpen(false);
+                    }}
+                    className="w-full text-left py-3 px-4 rounded-xl text-sm font-semibold transition-all text-zinc-500 hover:bg-zinc-50 hover:text-zinc-900 cursor-pointer"
+                  >
+                    + Add Transaction
+                  </button>
+                </li>
+                <li>
                   <NavLink
                     to="/dashboard"
                     className={({ isActive }) =>
-                      `block py-3 px-4 rounded-lg transition-all duration-200 ${
+                      `block py-3 px-4 rounded-xl text-sm font-semibold transition-all ${
                         isActive
-                          ? "bg-indigo-100 text-indigo-700 font-semibold"
-                          : "text-gray-700 hover:bg-gray-100"
+                          ? "bg-indigo-50/70 text-indigo-600"
+                          : "text-zinc-500 hover:bg-zinc-50 hover:text-zinc-900"
                       }`
                     }
                     onClick={() => setIsMenuOpen(false)}>
@@ -212,10 +225,10 @@ const Navbar = () => {
                   <NavLink
                     to="/transactions"
                     className={({ isActive }) =>
-                      `block py-3 px-4 rounded-lg transition-all duration-200 ${
+                      `block py-3 px-4 rounded-xl text-sm font-semibold transition-all ${
                         isActive
-                          ? "bg-indigo-100 text-indigo-700 font-semibold"
-                          : "text-gray-700 hover:bg-gray-100"
+                          ? "bg-indigo-50/70 text-indigo-600"
+                          : "text-zinc-500 hover:bg-zinc-50 hover:text-zinc-900"
                       }`
                     }
                     onClick={() => setIsMenuOpen(false)}>
@@ -226,10 +239,10 @@ const Navbar = () => {
                   <NavLink
                     to="/analytics"
                     className={({ isActive }) =>
-                      `block py-3 px-4 rounded-lg transition-all duration-200 ${
+                      `block py-3 px-4 rounded-xl text-sm font-semibold transition-all ${
                         isActive
-                          ? "bg-indigo-100 text-indigo-700 font-semibold"
-                          : "text-gray-700 hover:bg-gray-100"
+                          ? "bg-indigo-50/70 text-indigo-600"
+                          : "text-zinc-500 hover:bg-zinc-50 hover:text-zinc-900"
                       }`
                     }
                     onClick={() => setIsMenuOpen(false)}>
@@ -240,10 +253,10 @@ const Navbar = () => {
                   <NavLink
                     to="/profile"
                     className={({ isActive }) =>
-                      `block py-3 px-4 rounded-lg transition-all duration-200 ${
+                      `block py-3 px-4 rounded-xl text-sm font-semibold transition-all ${
                         isActive
-                          ? "bg-indigo-100 text-indigo-700 font-semibold"
-                          : "text-gray-700 hover:bg-gray-100"
+                          ? "bg-indigo-50/70 text-indigo-600"
+                          : "text-zinc-500 hover:bg-zinc-50 hover:text-zinc-900"
                       }`
                     }
                     onClick={() => setIsMenuOpen(false)}>
@@ -254,7 +267,7 @@ const Navbar = () => {
 
               <button
                 onClick={handleLogout}
-                className="mt-6 w-full bg-red-500 py-3 rounded-lg hover:bg-red-600 transition-all duration-200 shadow-md text-white font-medium">
+                className="mt-6 w-full bg-rose-50 text-rose-600 border border-rose-100 hover:bg-rose-100 py-3 rounded-xl transition-all shadow-xs text-sm font-bold cursor-pointer">
                 Logout
               </button>
             </>
@@ -262,7 +275,7 @@ const Navbar = () => {
             <div className="mt-auto mb-6 w-full">
               <NavLink
                 to="/login"
-                className="block w-full text-center bg-blue-500 py-3 rounded-lg hover:bg-blue-600 transition-all duration-200 shadow-md text-white font-medium"
+                className="block w-full text-center bg-zinc-950 hover:bg-zinc-900 py-3 rounded-xl transition-all shadow-xs text-white text-sm font-bold cursor-pointer"
                 onClick={() => setIsMenuOpen(false)}>
                 Login
               </NavLink>

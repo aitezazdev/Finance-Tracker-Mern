@@ -111,16 +111,16 @@ const TransactionForm = ({ onClose, setExpenses, setIncomes, setActiveTab }) => 
     formData.type === "income" ? incomeCategories : expenseCategories;
 
   return (
-    <form onSubmit={handleSubmit} className="">
-      <div className="mb-4">
-        <label className="block text-sm font-medium text-gray-700 mb-2">
-          Type <span className="text-red-600">*</span>
+    <form onSubmit={handleSubmit} className="space-y-4">
+      <div>
+        <label className="block text-xs font-bold text-zinc-500 uppercase tracking-wider mb-2">
+          Type <span className="text-red-500">*</span>
         </label>
         <select
           name="type"
           value={formData.type}
           onChange={handleChange}
-          className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-all"
+          className="w-full px-4 py-3 bg-zinc-50 focus:bg-white border border-zinc-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-all text-sm font-semibold text-zinc-700 cursor-pointer"
         >
           <option value="expense">Expense</option>
           <option value="income">Income</option>
@@ -128,8 +128,8 @@ const TransactionForm = ({ onClose, setExpenses, setIncomes, setActiveTab }) => 
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">
-          Amount <span className="text-red-600">*</span>
+        <label className="block text-xs font-bold text-zinc-500 uppercase tracking-wider mb-2">
+          Amount <span className="text-red-500">*</span>
         </label>
         <input
           type="number"
@@ -137,20 +137,20 @@ const TransactionForm = ({ onClose, setExpenses, setIncomes, setActiveTab }) => 
           value={formData.amount}
           onChange={handleChange}
           placeholder="Enter amount"
-          className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-all"
+          className="w-full px-4 py-3 bg-zinc-50 focus:bg-white border border-zinc-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-all text-sm font-semibold text-zinc-800"
         />
-        <p className="mb-3 text-red-500">{errors.amount}</p>
+        {errors.amount && <p className="mt-1.5 text-xs font-semibold text-red-500">{errors.amount}</p>}
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">
-          Category <span className="text-red-600">*</span>
+        <label className="block text-xs font-bold text-zinc-500 uppercase tracking-wider mb-2">
+          Category <span className="text-red-500">*</span>
         </label>
         <select
           name="category"
           value={formData.category}
           onChange={handleChange}
-          className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-all"
+          className="w-full px-4 py-3 bg-zinc-50 focus:bg-white border border-zinc-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-all text-sm font-semibold text-zinc-700 cursor-pointer"
         >
           <option value="">Select category</option>
           {availableCategories.map((cat) => (
@@ -159,25 +159,25 @@ const TransactionForm = ({ onClose, setExpenses, setIncomes, setActiveTab }) => 
             </option>
           ))}
         </select>
-        <p className="mb-3 text-red-500">{errors.category}</p>
+        {errors.category && <p className="mt-1.5 text-xs font-semibold text-red-500">{errors.category}</p>}
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">
-          Date <span className="text-red-600">*</span>
+        <label className="block text-xs font-bold text-zinc-500 uppercase tracking-wider mb-2">
+          Date <span className="text-red-500">*</span>
         </label>
         <input
           type="date"
           name="date"
           value={formData.date}
           onChange={handleChange}
-          className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-all"
+          className="w-full px-4 py-3 bg-zinc-50 focus:bg-white border border-zinc-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-all text-sm font-semibold text-zinc-800"
         />
-        <p className="mb-3 text-red-500">{errors.date}</p>
+        {errors.date && <p className="mt-1.5 text-xs font-semibold text-red-500">{errors.date}</p>}
       </div>
 
-      <div className="mb-3">
-        <label className="block text-sm font-medium text-gray-700 mb-2">
+      <div>
+        <label className="block text-xs font-bold text-zinc-500 uppercase tracking-wider mb-2">
           Description
         </label>
         <input
@@ -187,13 +187,13 @@ const TransactionForm = ({ onClose, setExpenses, setIncomes, setActiveTab }) => 
           value={formData.description}
           onChange={handleChange}
           placeholder="Optional description"
-          className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-all"
+          className="w-full px-4 py-3 bg-zinc-50 focus:bg-white border border-zinc-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-all text-sm font-semibold text-zinc-800"
         />
       </div>
 
       <button
         type="submit"
-        className="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded-xl shadow-lg transition-all"
+        className="w-full mt-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3.5 rounded-xl shadow-md hover:shadow-lg transition-all cursor-pointer text-sm"
       >
         Add {formData.type === "income" ? "Income" : "Expense"}
       </button>

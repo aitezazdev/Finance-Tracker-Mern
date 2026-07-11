@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import TransactionModel from "../components/TransactionModel";
+
 import Sidebar from "../components/Sidebar";
 import { getFinancialSummary, getRecentTransactions } from "../api/summaryApi";
 
@@ -47,78 +47,86 @@ const Dashboard = ({
   }, [expenses, incomes]);
 
   return (
-    <div className="flex pt-16 min-h-screen bg-gray-100">
+    <div className="flex pt-16 min-h-screen bg-zinc-50">
       <Sidebar setShowModal={setShowModal} />
 
-      <div className="ml-0 md:ml-64 flex-1 p-4 sm:p-8">
-        <h2 className="text-2xl font-semibold mb-6 text-gray-800">
-          Dashboard Overview
-        </h2>
+      <div className="ml-0 md:ml-64 flex-1 p-6 sm:p-10 max-w-7xl">
+        <div className="border-b border-zinc-200 pb-6 mb-8">
+          <h2 className="text-3xl font-extrabold text-zinc-900 tracking-tight">
+            Dashboard Overview
+          </h2>
+          <p className="mt-2 text-zinc-500 font-medium">
+            A real-time snapshot of your financial flow, recent activity, and performance.
+          </p>
+        </div>
+
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-10">
-          <div className="bg-white px-6 py-12 rounded-xl shadow-md border-l-4 border-green-500">
-            <h3 className="text-gray-600 text-center text-sm font-medium">
+          <div className="bg-white p-6 rounded-2xl border border-zinc-200 shadow-sm border-l-4 border-l-emerald-500">
+            <h3 className="text-zinc-500 text-xs font-bold uppercase tracking-wider">
               Total Income
             </h3>
-            <p className="text-2xl text-center font-semibold text-green-600 mt-2">
+            <p className="text-3xl font-black text-emerald-600 mt-2">
               Rs. {summaryData.totalIncome.toLocaleString()}
             </p>
           </div>
 
-          <div className="bg-white px-6 py-12 rounded-xl shadow-md border-l-4 border-red-500">
-            <h3 className="text-gray-600 text-center text-sm font-medium">
+          <div className="bg-white p-6 rounded-2xl border border-zinc-200 shadow-sm border-l-4 border-l-rose-500">
+            <h3 className="text-zinc-500 text-xs font-bold uppercase tracking-wider">
               Total Expenses
             </h3>
-            <p className="text-2xl text-center font-semibold text-red-600 mt-2">
+            <p className="text-3xl font-black text-rose-600 mt-2">
               Rs. {summaryData.totalExpense.toLocaleString()}
             </p>
           </div>
 
-          <div className="bg-white px-6 py-12 rounded-xl shadow-md border-l-4 border-indigo-500">
-            <h3 className="text-gray-600 text-center text-sm font-medium">
+          <div className="bg-white p-6 rounded-2xl border border-zinc-200 shadow-sm border-l-4 border-l-indigo-600">
+            <h3 className="text-zinc-500 text-xs font-bold uppercase tracking-wider">
               Remaining Balance
             </h3>
-            <p className="text-2xl text-center font-semibold text-indigo-600 mt-2">
+            <p className="text-3xl font-black text-indigo-600 mt-2">
               Rs. {summaryData.balance.toLocaleString()}
             </p>
           </div>
         </div>
 
         <div className="mt-8">
-          <h3 className="text-xl font-semibold mb-4 text-gray-800">
+          <h3 className="text-xl font-bold mb-4 text-zinc-900">
             Recent Transactions
           </h3>
           
           <div className="md:hidden space-y-4">
             {recentTransactions.length === 0 ? (
-              <div className="py-6 text-center text-gray-500 bg-white rounded-lg shadow-md">
+              <div className="py-8 text-center text-zinc-400 bg-white rounded-2xl border border-zinc-200 shadow-xs">
                 No transactions recorded yet.
               </div>
             ) : (
               recentTransactions.map((transaction) => (
                 <div  
                   key={transaction._id}
-                  className={`bg-white rounded-lg shadow-md p-4 border-l-4 ${
-                    transaction.type === 'income' ? 'border-green-500' : 'border-red-500'
+                  className={`bg-white rounded-2xl border border-zinc-200 shadow-sm p-5 border-l-4 ${
+                    transaction.type === 'income' ? 'border-l-emerald-500' : 'border-l-rose-500'
                   }`}>
-                  <div className="flex justify-between items-center mb-2">
-                    <span className={`font-bold text-lg ${
-                      transaction.type === 'income' ? 'text-green-600' : 'text-red-600'
+                  <div className="flex justify-between items-center mb-3">
+                    <span className={`font-extrabold text-lg ${
+                      transaction.type === 'income' ? 'text-emerald-600' : 'text-rose-600'
                     }`}>
                       Rs. {transaction.amount}
                     </span>
-                    <span className="text-sm text-gray-500">
+                    <span className="text-xs font-medium text-zinc-400">
                       {transaction.date}
                     </span>
                   </div>
-                  <div className="flex items-center mb-2">
-                    <span className="text-xs px-2 py-1 rounded ">
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="text-xs font-semibold px-2.5 py-1 rounded-md bg-zinc-100 text-zinc-700">
                       {transaction.category}
                     </span>
-                    <span className="ml-2 text-xs px-2 py-1 rounded bg-gray-100 text-gray-800">
+                    <span className={`text-xs font-semibold px-2.5 py-1 rounded-md ${
+                      transaction.type === 'income' ? 'bg-emerald-50 text-emerald-700' : 'bg-rose-50 text-rose-700'
+                    }`}>
                       {transaction.type === 'income' ? 'Income' : 'Expense'}
                     </span>
                   </div>
-                  <p className="text-gray-700">
+                  <p className="text-zinc-600 text-sm">
                     {transaction.description || "—"}
                   </p>
                 </div>
@@ -126,51 +134,49 @@ const Dashboard = ({
             )}
           </div>
           
-          <div className="hidden md:block overflow-y-auto max-h-[500px] border rounded-lg shadow-md">
-            <table className="min-w-full bg-white rounded-lg">
-              <thead className="bg-gray-900 text-white text-lg uppercase sticky top-0">
-                <tr className="text-center">
-                  <th className="py-4 px-4">Date</th>
-                  <th className="py-4 px-4">Type</th>
-                  <th className="py-4 px-4">Category</th>
-                  <th className="py-4 px-4">Description</th>
-                  <th className="py-4 px-4">Amount (Rs)</th>
+          <div className="hidden md:block overflow-y-auto max-h-[500px] border border-zinc-200 rounded-2xl shadow-sm">
+            <table className="min-w-full bg-white">
+              <thead className="bg-zinc-50 border-b border-zinc-200 text-zinc-500 text-xs uppercase tracking-wider sticky top-0">
+                <tr className="text-left">
+                  <th className="py-4 px-6 font-semibold">Date</th>
+                  <th className="py-4 px-6 font-semibold">Type</th>
+                  <th className="py-4 px-6 font-semibold">Category</th>
+                  <th className="py-4 px-6 font-semibold">Description</th>
+                  <th className="py-4 px-6 font-semibold text-right">Amount (Rs)</th>
                 </tr>
               </thead>
-              <tbody className="text-gray-700 text-md">
+              <tbody className="text-zinc-700 text-sm divide-y divide-zinc-100">
                 {recentTransactions.length === 0 ? (
                   <tr>
-                    <td colSpan="5" className="py-6 text-center text-gray-500">
+                    <td colSpan="5" className="py-8 text-center text-zinc-400 font-medium">
                       No transactions recorded yet.
                     </td>
                   </tr>
                 ) : (
-                  recentTransactions.map((transaction, index) => (
+                  recentTransactions.map((transaction) => (
                     <tr
                       key={transaction._id}
-                      className={`border-b transition hover:bg-gray-200 ${
-                        index % 2 === 0 ? 'bg-gray-100' : 'bg-white'
-                      }`}>
-                      <td className="py-4 px-4 text-center">{transaction.date}</td>
-                      <td className="py-4 px-4 text-center">
-                        <span className={`inline-block px-2 py-1 rounded text-xs ${
-                          transaction.type === 'income' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
+                      className="hover:bg-zinc-50/80 transition-colors">
+                      <td className="py-4 px-6 font-medium text-zinc-400">{transaction.date}</td>
+                      <td className="py-4 px-6">
+                        <span className={`inline-flex px-2.5 py-1 rounded-md text-xs font-semibold ${
+                          transaction.type === 'income' ? 'bg-emerald-50 text-emerald-700' : 'bg-rose-50 text-rose-700'
                         }`}>
                           {transaction.type === 'income' ? 'Income' : 'Expense'}
                         </span>
                       </td>
-                      <td className="py-4 px-4 text-center">
-                        <span className="inline-block px-2 py-1 rounded text-sm">
+                      <td className="py-4 px-6">
+                        <span className="text-zinc-900 font-semibold">
                           {transaction.category}
                         </span>
                       </td>
-                      <td className="py-4 px-4 text-center">
+                      <td className="py-4 px-6 text-zinc-500 max-w-xs truncate">
                         {transaction.description || "—"}
                       </td>
-                      <td className={`py-4 px-4 text-center font-semibold ${
-                        transaction.type === 'income' ? 'text-green-600' : 'text-red-600'
+                      <td className={`py-4 px-6 text-right font-bold text-base ${
+                        transaction.type === 'income' ? 'text-emerald-600' : 'text-rose-600'
                       }`}>
-                        Rs. {transaction.amount}
+                        {transaction.type === 'income' ? '+' : '-'} Rs. {transaction.amount.toLocaleString()}
                       </td>
                     </tr>
                   ))
@@ -179,14 +185,6 @@ const Dashboard = ({
             </table>
           </div>
         </div>
-
-        <TransactionModel
-          show={showModal}
-          onClose={() => setShowModal(false)}
-          setExpenses={setExpenses}
-          setIncomes={setIncomes}
-          setActiveTab={setActiveTab}
-        />
       </div>
     </div>
   );

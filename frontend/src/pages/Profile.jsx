@@ -74,61 +74,65 @@ const Profile = () => {
   }, []);
 
   return (
-    <div className="max-w-lg mx-auto mt-24 p-8 bg-white rounded-3xl shadow-xl border border-gray-200 space-y-8">
-      <div className="flex items-center space-x-5">
-        <div className="w-16 h-16 rounded-full bg-indigo-600 text-white flex items-center justify-center text-2xl font-extrabold shadow-lg">
+    <div className="max-w-lg mx-auto mt-28 p-8 sm:p-10 bg-white rounded-3xl shadow-sm border border-zinc-200 space-y-8">
+      <div className="flex items-center space-x-6">
+        <div className="w-16 h-16 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-600 flex items-center justify-center text-2xl font-black shadow-xs select-none">
           {getInitials(userData.name)}
         </div>
         <div className="flex-1">
           {isEditing ? (
-            <>
+            <div className="space-y-2">
               <input
-                className="w-full px-4 py-2 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 outline-none mb-2 transition"
+                className="w-full px-4 py-2.5 bg-zinc-50 focus:bg-white border border-zinc-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-all text-sm font-semibold text-zinc-800"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               />
               <input
-                className={`w-full px-4 py-2 rounded-xl border ${
+                className={`w-full px-4 py-2.5 bg-zinc-50 focus:bg-white border ${
                   error.toLowerCase().includes("email")
-                    ? "border-red-500"
-                    : "border-gray-300"
-                } focus:ring-2 focus:ring-blue-500 outline-none transition`}
+                    ? "border-rose-500"
+                    : "border-zinc-300"
+                } rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-all text-sm font-semibold text-zinc-800`}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
               {error && error.toLowerCase().includes("email") && (
-                <p className="text-sm text-red-500 mt-1">{error}</p>
+                <p className="text-xs font-semibold text-rose-600 mt-1">{error}</p>
               )}
-            </>
+            </div>
           ) : (
             <>
-              <h2 className="text-lg font-semibold text-gray-900">
+              <h2 className="text-xl font-black text-zinc-950 tracking-tight">
                 {userData.name}
               </h2>
-              <p className="text-gray-500">{userData.email}</p>
+              <p className="text-zinc-500 font-semibold text-sm">{userData.email}</p>
             </>
           )}
         </div>
       </div>
 
-      <hr className="border-t border-gray-200" />
+      <hr className="border-t border-zinc-100" />
 
       <div>
-        <p className="text-sm text-gray-400">
-          Joined on{" "}
-          <span className="text-gray-600 font-medium">
-            {new Date(userData.createdAt).toLocaleDateString("en-GB")}
-          </span>
+        <p className="text-xs font-semibold text-zinc-400 uppercase tracking-wider">
+          Account Created
+        </p>
+        <p className="text-sm font-bold text-zinc-800 mt-1.5">
+          {userData.createdAt ? new Date(userData.createdAt).toLocaleDateString("en-GB", {
+            day: "numeric",
+            month: "long",
+            year: "numeric"
+          }) : "—"}
         </p>
       </div>
 
-      <div className="flex flex-wrap gap-4">
+      <div className="flex flex-wrap gap-4 pt-2">
         {isEditing ? (
           <>
             <button
               onClick={handleSave}
-              className="flex-1 px-5 py-3 cursor-pointer bg-green-500 text-white rounded-xl hover:bg-green-600 transition shadow">
-              Save
+              className="flex-1 px-5 py-3 cursor-pointer bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition shadow-xs text-sm">
+              Save Changes
             </button>
             <button
               onClick={() => {
@@ -137,7 +141,7 @@ const Profile = () => {
                 setEmail(userData.email);
                 setError("");
               }}
-              className="flex-1 px-5 py-3 cursor-pointer bg-gray-400 text-white rounded-xl hover:bg-gray-500 transition shadow">
+              className="flex-1 px-5 py-3 cursor-pointer bg-white text-zinc-700 border border-zinc-300 font-bold rounded-xl hover:bg-zinc-50 transition shadow-xs text-sm">
               Cancel
             </button>
           </>
@@ -145,12 +149,12 @@ const Profile = () => {
           <>
             <button
               onClick={() => setIsEditing(true)}
-              className="flex-1 px-5 py-3 cursor-pointer bg-blue-500 text-white rounded-xl hover:bg-blue-600 transition shadow">
+              className="flex-1 px-5 py-3 cursor-pointer bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition shadow-xs text-sm">
               Edit Profile
             </button>
             <button
               onClick={() => setShowDeleteConfirm(true)}
-              className="flex-1 px-5 py-3 cursor-pointer bg-red-500 text-white rounded-xl hover:bg-red-600 transition shadow">
+              className="flex-1 px-5 py-3 cursor-pointer bg-rose-50 text-rose-600 border border-rose-100 font-bold rounded-xl hover:bg-rose-100 transition shadow-xs text-sm">
               Delete Account
             </button>
           </>
@@ -158,27 +162,27 @@ const Profile = () => {
       </div>
 
       {deleteError && (
-        <p className="text-sm text-red-500 text-center">{deleteError}</p>
+        <p className="text-xs font-bold text-rose-600 text-center">{deleteError}</p>
       )}
 
       {showDeleteConfirm && (
-        <div className="fixed inset-0 backdrop-blur-xs flex items-center justify-center z-50">
-          <div className="bg-white rounded-xl shadow-lg p-6 max-w-sm w-full space-y-4 text-center">
-            <h2 className="text-lg font-semibold text-gray-800">
+        <div className="fixed inset-0 bg-black/55 backdrop-blur-md flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-3xl border border-zinc-200 shadow-2xl p-6 sm:p-8 max-w-sm w-full space-y-4 text-center">
+            <h2 className="text-xl font-extrabold text-zinc-950 tracking-tight">
               Are you sure?
             </h2>
-            <p className="text-sm text-gray-600">
-              Deleting your account is permanent. This action cannot be undone.
+            <p className="text-sm font-medium text-zinc-500 leading-relaxed">
+              Deleting your account is permanent and cannot be undone. All your financial logs will be wiped out.
             </p>
-            <div className="flex justify-center space-x-4 mt-4">
+            <div className="flex justify-center gap-3 pt-2">
               <button
                 onClick={() => setShowDeleteConfirm(false)}
-                className="px-4 py-2 rounded bg-gray-300 hover:bg-gray-400 text-gray-800">
+                className="px-5 py-2.5 rounded-xl bg-white hover:bg-zinc-50 text-zinc-700 border border-zinc-300 font-bold text-sm cursor-pointer shadow-xs">
                 Cancel
               </button>
               <button
                 onClick={confirmDelete}
-                className="px-4 py-2 rounded bg-red-600 hover:bg-red-700 text-white">
+                className="px-5 py-2.5 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-sm cursor-pointer shadow-xs">
                 Delete
               </button>
             </div>

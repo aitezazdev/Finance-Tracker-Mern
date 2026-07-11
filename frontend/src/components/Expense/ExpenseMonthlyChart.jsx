@@ -67,7 +67,7 @@ const ExpenseMonthlyChart = ({ data }) => {
               <Bar 
                 dataKey="amount" 
                 name="Total Spent" 
-                fill="#3b82f6" 
+                fill="#4f46e5" 
                 radius={[4, 4, 0, 0]}
                 animationDuration={1000}
               />

@@ -71,49 +71,49 @@ const RegisterPage = () => {
   };
 
   return (
-    <div className="w-full flex items-center pt-5 mt-20 justify-center bg-gray-50">
-      <div className="w-full max-w-md px-6">
+    <div className="w-full min-h-[85vh] flex items-center justify-center bg-zinc-50 px-4">
+      <div className="w-full max-w-md">
         <form
           onSubmit={handleSubmit}
-          className="bg-white shadow-xl rounded-xl px-8 pt-4 pb-10 border border-gray-200 transition-all"
+          className="bg-white shadow-sm rounded-3xl p-8 sm:p-10 border border-zinc-200 transition-all"
         >
           <div className="mb-8 text-center">
-            <h3 className="text-3xl font-bold text-gray-800 mb-2">
+            <h3 className="text-2xl font-black text-zinc-950 tracking-tight">
               Create Account
             </h3>
-            <p className="text-gray-600">Sign up to get started</p>
+            <p className="text-zinc-500 font-medium mt-1 text-sm">Sign up to get started</p>
           </div>
 
           {errors.backend && (
             <div
-              className="bg-red-50 border-l-4 border-red-500 text-red-700 p-4 rounded mb-6"
+              className="bg-rose-50 border-l-4 border-rose-500 text-rose-800 p-4 rounded-xl mb-6 text-sm font-semibold"
               role="alert"
             >
               <div className="flex">
-                <div className="py-1">
-                  <MdOutlineError className="w-6 h-6 mr-4 text-red-500" />
+                <div className="py-0.5">
+                  <MdOutlineError className="w-5 h-5 mr-3 text-rose-500" />
                 </div>
                 <span>{errors.backend}</span>
               </div>
             </div>
           )}
 
-          <div className="space-y-4">
+          <div className="space-y-5">
             <div>
               <label
                 htmlFor="name"
-                className="block text-gray-700 text-sm font-semibold mb-2"
+                className="block text-xs font-bold text-zinc-500 uppercase tracking-wider mb-2"
               >
                 Full Name
               </label>
               <div className="relative">
-                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <FiUser className="w-5 h-5 text-gray-400" />
+                <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
+                  <FiUser className="w-5 h-5 text-zinc-400" />
                 </div>
                 <input
                   onChange={handleChange}
                   value={data.name}
-                  className="w-full pl-10 py-3 px-4 text-gray-700 bg-gray-50 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300 focus:bg-white border border-gray-300 transition-all"
+                  className="w-full pl-10 pr-4 py-3 text-zinc-800 bg-zinc-50 focus:bg-white border border-zinc-300 focus:border-zinc-400 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-all text-sm font-semibold"
                   type="text"
                   name="name"
                   id="name"
@@ -122,7 +122,7 @@ const RegisterPage = () => {
                 />
               </div>
               {errors.name && (
-                <p className="text-red-500 text-sm mt-1 font-medium">
+                <p className="text-rose-600 text-xs mt-1.5 font-semibold">
                   {errors.name}
                 </p>
               )}
@@ -131,18 +131,18 @@ const RegisterPage = () => {
             <div>
               <label
                 htmlFor="email"
-                className="block text-gray-700 text-sm font-semibold mb-2"
+                className="block text-xs font-bold text-zinc-500 uppercase tracking-wider mb-2"
               >
                 Email Address
               </label>
               <div className="relative">
-                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <MdOutlineEmail className="w-5 h-5 text-gray-400" />
+                <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
+                  <MdOutlineEmail className="w-5 h-5 text-zinc-400" />
                 </div>
                 <input
                   onChange={handleChange}
                   value={data.email}
-                  className="w-full pl-10 py-3 px-4 text-gray-700 bg-gray-50 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300 focus:bg-white border border-gray-300 transition-all"
+                  className="w-full pl-10 pr-4 py-3 text-zinc-800 bg-zinc-50 focus:bg-white border border-zinc-300 focus:border-zinc-400 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-all text-sm font-semibold"
                   type="email"
                   name="email"
                   id="email"
@@ -151,7 +151,7 @@ const RegisterPage = () => {
                 />
               </div>
               {errors.email && (
-                <p className="text-red-500 text-sm mt-1 font-medium">
+                <p className="text-rose-600 text-xs mt-1.5 font-semibold">
                   {errors.email}
                 </p>
               )}
@@ -160,18 +160,18 @@ const RegisterPage = () => {
             <div>
               <label
                 htmlFor="password"
-                className="block text-gray-700 text-sm font-semibold mb-2"
+                className="block text-xs font-bold text-zinc-500 uppercase tracking-wider mb-2"
               >
                 Password
               </label>
               <div className="relative">
-                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <RiLockPasswordLine className="w-5 h-5 text-gray-400" />
+                <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
+                  <RiLockPasswordLine className="w-5 h-5 text-zinc-400" />
                 </div>
                 <input
                   onChange={handleChange}
                   value={data.password}
-                  className="w-full pl-10 pr-10 py-3 px-4 text-gray-700 bg-gray-50 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300 focus:bg-white border border-gray-300 transition-all"
+                  className="w-full pl-10 pr-10 py-3 text-zinc-800 bg-zinc-50 focus:bg-white border border-zinc-300 focus:border-zinc-400 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-all text-sm font-semibold"
                   type={showPassword ? "text" : "password"}
                   name="password"
                   id="password"
@@ -181,18 +181,18 @@ const RegisterPage = () => {
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-600 hover:text-gray-900 focus:outline-none"
+                  className="absolute inset-y-0 right-0 pr-3.5 flex items-center text-zinc-400 hover:text-zinc-750 focus:outline-none cursor-pointer"
                   tabIndex={-1}
                 >
                   {showPassword ? (
-                    <AiFillEyeInvisible className="w-6 h-6 text-gray-500" />
+                    <AiFillEyeInvisible className="w-5 h-5" />
                   ) : (
-                    <AiFillEye className="w-6 h-6 text-gray-500" />
+                    <AiFillEye className="w-5 h-5" />
                   )}
                 </button>
               </div>
               {errors.password && (
-                <p className="text-red-500 text-sm mt-1 font-medium">
+                <p className="text-rose-600 text-xs mt-1.5 font-semibold">
                   {errors.password}
                 </p>
               )}
@@ -201,7 +201,7 @@ const RegisterPage = () => {
             <button
               type="submit"
               disabled={loading}
-              className="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 font-medium transition-all disabled:opacity-70"
+              className="w-full flex justify-center py-3.5 px-4 border border-transparent rounded-xl shadow-xs text-white bg-indigo-600 hover:bg-indigo-700 font-bold text-sm transition-all disabled:opacity-75 cursor-pointer mt-6"
             >
               {loading ? (
                 <span className="flex items-center">
@@ -214,12 +214,12 @@ const RegisterPage = () => {
             </button>
           </div>
 
-          <div className="mt-8 text-center">
-            <p className="text-gray-600">
+          <div className="mt-8 text-center border-t border-zinc-100 pt-6">
+            <p className="text-zinc-500 text-sm font-medium">
               Already have an account?{" "}
               <Link
                 to="/login"
-                className="text-blue-600 hover:text-blue-800 font-semibold"
+                className="text-indigo-600 hover:text-indigo-800 font-bold transition-colors"
               >
                 Sign in
               </Link>

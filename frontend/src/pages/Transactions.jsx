@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ExpenseList from "../components/Expense/ExpenseList";
-import TransactionModel from "../components/TransactionModel";
+
 import ExpenseFilter from "../components/Expense/ExpenseFilter";
 import { getExpenses } from "../api/expenseApi";
 import { getIncomes } from "../api/incomeApi";
@@ -62,30 +62,36 @@ const Transactions = () => {
   }, []);
 
   return (
-    <div className="flex pt-16 min-h-screen bg-gray-100">
+    <div className="flex pt-16 min-h-screen bg-zinc-50">
       <Sidebar setShowModal={setShowModal} />
 
-      <div className="ml-0 md:ml-64 flex-1 p-4 sm:p-8">
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
-          <h1 className="text-3xl sm:text-4xl font-bold text-gray-800">
-            Your Transactions
-          </h1>
-          <div className="flex gap-10 border-b">
+      <div className="ml-0 md:ml-64 flex-1 p-6 sm:p-10 max-w-7xl">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-6 border-b border-zinc-200 pb-6">
+          <div>
+            <h1 className="text-3xl font-extrabold text-zinc-900 tracking-tight">
+              Your Transactions
+            </h1>
+            <p className="mt-2 text-zinc-500 font-medium">
+              Manage, filter, and review all your logged income and expense records.
+            </p>
+          </div>
+          
+          <div className="inline-flex p-1 bg-zinc-200/80 rounded-xl shadow-xs border border-zinc-300/40">
             <button
               onClick={() => setActiveTab("Expenses")}
-              className={`cursor-pointer py-1 text-xl font-semibold ${
+              className={`px-5 py-2.5 rounded-lg text-sm font-semibold transition-all cursor-pointer ${
                 activeTab === "Expenses"
-                  ? "border-b-2 border-blue-500 text-blue-600"
-                  : "text-gray-500 hover:text-gray-700"
+                  ? "bg-white text-zinc-950 shadow-sm"
+                  : "text-zinc-600 hover:text-zinc-900"
               }`}>
               Expenses
             </button>
             <button
               onClick={() => setActiveTab("Incomes")}
-              className={`cursor-pointer py-1 text-xl font-semibold ${
+              className={`px-5 py-2.5 rounded-lg text-sm font-semibold transition-all cursor-pointer ${
                 activeTab === "Incomes"
-                  ? "border-b-2 border-blue-500 text-blue-600"
-                  : "text-gray-500 hover:text-gray-700"
+                  ? "bg-white text-zinc-950 shadow-sm"
+                  : "text-zinc-600 hover:text-zinc-900"
               }`}>
               Incomes
             </button>
@@ -110,13 +116,7 @@ const Transactions = () => {
             </>
           )
         }
-        <TransactionModel
-          show={showModal}
-          onClose={() => setShowModal(false)}
-          setExpenses={setExpenses}
-          setIncomes={setIncomes}
-          setActiveTab={setActiveTab}
-        />
+
       </div>
     </div>
   );
