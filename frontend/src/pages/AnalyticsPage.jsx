@@ -11,7 +11,7 @@ const AnalyticsPage = () => {
     <div className="flex pt-16 min-h-screen bg-gray-100">
       <Sidebar />
 
-      <div className="ml-64 flex-1 p-4 sm:p-8">
+      <div className="ml-0 md:ml-64 flex-1 p-4 sm:p-8">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
         <div className="max-w-6xl">
             <h1 className="text-3xl font-bold text-center sm:text-left">

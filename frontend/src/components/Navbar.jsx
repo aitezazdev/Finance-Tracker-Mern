@@ -179,23 +179,75 @@ const Navbar = () => {
                 </span>
               </div>
 
-              <ul className="space-y-4 mb-auto">
+              <ul className="space-y-2 mb-auto">
                 <li>
                   <NavLink
                     to="/"
-                    className={({ isActive }) => {
-                      `block py-3 px-4 text-gray-700 hover:bg-gray-100 rounded-lg transition-all duration-200`;
-                    }}
+                    className={({ isActive }) =>
+                      `block py-3 px-4 rounded-lg transition-all duration-200 ${
+                        isActive
+                          ? "bg-indigo-100 text-indigo-700 font-semibold"
+                          : "text-gray-700 hover:bg-gray-100"
+                      }`
+                    }
                     onClick={() => setIsMenuOpen(false)}>
                     Home
                   </NavLink>
                 </li>
                 <li>
                   <NavLink
-                    to="/summary"
-                    className="block py-3 px-4 text-gray-700 hover:bg-gray-100 rounded-lg transition-all duration-200"
+                    to="/dashboard"
+                    className={({ isActive }) =>
+                      `block py-3 px-4 rounded-lg transition-all duration-200 ${
+                        isActive
+                          ? "bg-indigo-100 text-indigo-700 font-semibold"
+                          : "text-gray-700 hover:bg-gray-100"
+                      }`
+                    }
                     onClick={() => setIsMenuOpen(false)}>
-                    Summary
+                    Dashboard
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/transactions"
+                    className={({ isActive }) =>
+                      `block py-3 px-4 rounded-lg transition-all duration-200 ${
+                        isActive
+                          ? "bg-indigo-100 text-indigo-700 font-semibold"
+                          : "text-gray-700 hover:bg-gray-100"
+                      }`
+                    }
+                    onClick={() => setIsMenuOpen(false)}>
+                    Transactions
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/analytics"
+                    className={({ isActive }) =>
+                      `block py-3 px-4 rounded-lg transition-all duration-200 ${
+                        isActive
+                          ? "bg-indigo-100 text-indigo-700 font-semibold"
+                          : "text-gray-700 hover:bg-gray-100"
+                      }`
+                    }
+                    onClick={() => setIsMenuOpen(false)}>
+                    Analytics
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/profile"
+                    className={({ isActive }) =>
+                      `block py-3 px-4 rounded-lg transition-all duration-200 ${
+                        isActive
+                          ? "bg-indigo-100 text-indigo-700 font-semibold"
+                          : "text-gray-700 hover:bg-gray-100"
+                      }`
+                    }
+                    onClick={() => setIsMenuOpen(false)}>
+                    Profile
                   </NavLink>
                 </li>
               </ul>

@@ -28,7 +28,7 @@ const Sidebar = ({ setShowModal }) => {
     navigate("/login");
   };
   return (
-    <aside className="w-64 min-h-screen fixed left-0 top-0 bg-white shadow-lg flex flex-col z-10">
+    <aside className="hidden md:flex w-64 min-h-screen fixed left-0 top-0 bg-white shadow-lg flex-col z-10">
       <div className="px-6 py-5">
         <h1 className="text-2xl font-bold text-indigo-600">Expensely</h1>
       </div>

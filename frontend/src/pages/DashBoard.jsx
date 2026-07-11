@@ -50,7 +50,7 @@ const Dashboard = ({
     <div className="flex pt-16 min-h-screen bg-gray-100">
       <Sidebar setShowModal={setShowModal} />
 
-      <div className="ml-64 flex-1 p-4 sm:p-8">
+      <div className="ml-0 md:ml-64 flex-1 p-4 sm:p-8">
         <h2 className="text-2xl font-semibold mb-6 text-gray-800">
           Dashboard Overview
         </h2>
