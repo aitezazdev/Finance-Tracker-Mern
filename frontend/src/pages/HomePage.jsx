@@ -11,11 +11,11 @@ export default function HomePage() {
     <div className="min-h-screen pt-16 text-zinc-900 bg-zinc-50 font-sans">
       {/* Hero Section */}
       <section className="relative flex items-center justify-center min-h-[85vh] px-6 text-center overflow-hidden border-b border-zinc-200 bg-white">
-        <div className="absolute inset-0 bg-radial from-indigo-50/20 via-transparent to-transparent -z-10"></div>
+        <div className="absolute inset-0 bg-radial from-emerald-50/20 via-transparent to-transparent -z-10"></div>
         <div className="max-w-4xl space-y-8 py-12">
           <h1 className="text-5xl md:text-7xl font-black tracking-tight leading-[1.1] text-zinc-950">
             Track your expenses <br />
-            <span className="text-indigo-600">with absolute clarity.</span>
+            <span className="text-emerald-600">with absolute clarity.</span>
           </h1>
           <p className="max-w-2xl mx-auto text-base md:text-lg text-zinc-500 font-medium leading-relaxed">
             A minimalist, high-fidelity personal finance tracker designed for builders, creators, and teams who value professional budgeting without the noise.
@@ -31,7 +31,7 @@ export default function HomePage() {
                 </Link>
                 <Link
                   to="/login"
-                  className="inline-block bg-white hover:bg-zinc-50 text-zinc-700 border border-zinc-350 font-bold px-8 py-4 rounded-xl shadow-xs transition-all duration-200 text-sm cursor-pointer"
+                  className="inline-block bg-white hover:bg-zinc-50 text-zinc-700 border border-zinc-200 font-bold px-8 py-4 rounded-xl shadow-xs transition-all duration-200 text-sm cursor-pointer"
                 >
                   Sign In
                 </Link>
@@ -39,7 +39,7 @@ export default function HomePage() {
             ) : (
               <Link
                 to="/dashboard"
-                className="inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-8 py-4 rounded-xl shadow-md transition-all duration-200 text-sm cursor-pointer"
+                className="inline-block bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-8 py-4 rounded-xl shadow-md transition-all duration-200 text-sm cursor-pointer"
               >
                 Go to Dashboard
               </Link>
@@ -61,26 +61,26 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
-                icon: <FaWallet className="text-indigo-600" />,
+                icon: <FaWallet className="text-emerald-600" />,
                 title: "Smart Budgeting",
                 desc: "Establish monthly limits per category and track your margins in real time with subtle visual indicators.",
               },
               {
-                icon: <FaChartPie className="text-indigo-600" />,
+                icon: <FaChartPie className="text-emerald-600" />,
                 title: "Structured Analytics",
                 desc: "Access elegant bar charts, monthly trends, and clean categorical distribution breakdowns.",
               },
               {
-                icon: <FaSyncAlt className="text-indigo-600" />,
+                icon: <FaSyncAlt className="text-emerald-600" />,
                 title: "Simplified Tracking",
                 desc: "Record incomes and expenses inside a cohesive logging ledger built for speed and responsiveness.",
               },
             ].map(({ icon, title, desc }, i) => (
               <div
                 key={i}
-                className="bg-white rounded-3xl p-8 border border-zinc-200 shadow-xs hover:border-zinc-350 hover:shadow-sm transition-all duration-300 flex flex-col items-center text-center"
+                className="bg-white rounded-3xl p-8 border border-zinc-200 shadow-xs hover:border-zinc-250 hover:shadow-sm transition-all duration-300 flex flex-col items-center text-center"
               >
-                <div className="text-2xl mb-6 p-4 bg-zinc-50 rounded-xl text-indigo-600 border border-zinc-150/50">
+                <div className="text-2xl mb-6 p-4 bg-zinc-50 rounded-xl text-emerald-600 border border-zinc-200">
                   {icon}
                 </div>
                 <h3 className="text-lg font-bold mb-2.5 text-zinc-950">{title}</h3>
@@ -119,7 +119,7 @@ export default function HomePage() {
                 desc: "Review clean breakdown structures to pinpoint exactly where your cashflow can be optimized.",
               },
             ].map(({ step, title, desc }) => (
-              <div key={step} className="relative bg-white rounded-3xl border border-zinc-200 shadow-xs hover:border-zinc-350 hover:shadow-sm transition-all duration-300 p-8 pt-16 text-left">
+              <div key={step} className="relative bg-white rounded-3xl border border-zinc-200 shadow-xs hover:border-zinc-250 hover:shadow-sm transition-all duration-300 p-8 pt-16 text-left">
                 <div
                   className="absolute -top-6 left-8 w-12 h-12 rounded-xl bg-zinc-950 flex items-center justify-center text-white text-base font-extrabold shadow-sm select-none"
                 >
@@ -166,11 +166,11 @@ export default function HomePage() {
             ].map((testimonial, index) => (
               <div
                 key={index}
-                className="bg-white rounded-3xl p-8 border border-zinc-200 shadow-xs hover:border-zinc-350 hover:shadow-sm transition-all duration-300 flex flex-col justify-between text-left"
+                className="bg-white rounded-3xl p-8 border border-zinc-200 shadow-xs hover:border-zinc-250 hover:shadow-sm transition-all duration-300 flex flex-col justify-between text-left"
               >
                 <div className="text-zinc-300 text-5xl font-serif mb-4 select-none leading-none">“</div>
                 <p className="text-zinc-600 text-sm font-semibold leading-relaxed mb-6 italic">{testimonial.quote}</p>
-                <div className="border-t border-zinc-100 pt-4">
+                <div className="border-t border-zinc-200 pt-4">
                   <p className="font-extrabold text-zinc-900 text-sm">{testimonial.author}</p>
                   <p className="text-zinc-400 text-xs font-bold mt-0.5">{testimonial.role}</p>
                 </div>

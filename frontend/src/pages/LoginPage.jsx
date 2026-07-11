@@ -78,7 +78,7 @@ const LoginPage = () => {
 
           {errors.backend && (
             <div
-              className="bg-rose-50 border-l-4 border-rose-500 text-rose-800 p-4 rounded-xl mb-6 text-sm font-semibold"
+              className="bg-rose-50 border-l-4 border-zinc-800 text-rose-800 p-4 rounded-xl mb-6 text-sm font-semibold"
               role="alert">
               <div className="flex">
                 <div className="py-0.5">
@@ -103,7 +103,7 @@ const LoginPage = () => {
                 <input
                   onChange={handleChange}
                   value={data.email}
-                  className="w-full pl-10 pr-4 py-3 text-zinc-800 bg-zinc-50 focus:bg-white border border-zinc-300 focus:border-zinc-400 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-all text-sm font-semibold"
+                  className="w-full pl-10 pr-4 py-3 text-zinc-800 bg-zinc-50 focus:bg-white border border-zinc-200 focus:border-zinc-400 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all text-sm font-semibold"
                   type="email"
                   name="email"
                   id="email"
@@ -133,7 +133,7 @@ const LoginPage = () => {
                 <input
                   onChange={handleChange}
                   value={data.password}
-                  className="w-full pl-10 pr-10 py-3 text-zinc-800 bg-zinc-50 focus:bg-white border border-zinc-300 focus:border-zinc-400 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-all text-sm font-semibold"
+                  className="w-full pl-10 pr-10 py-3 text-zinc-800 bg-zinc-50 focus:bg-white border border-zinc-200 focus:border-zinc-400 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all text-sm font-semibold"
                   type={showPassword ? "text" : "password"}
                   name="password"
                   id="password"
@@ -160,9 +160,9 @@ const LoginPage = () => {
             </div>
 
             <button
-              type="submit"
-              disabled={loading}
-              className="w-full flex justify-center py-3.5 px-4 border border-transparent rounded-xl shadow-xs text-white bg-indigo-600 hover:bg-indigo-700 font-bold text-sm transition-all disabled:opacity-75 cursor-pointer mt-6">
+               type="submit"
+               disabled={loading}
+               className="w-full flex justify-center py-3.5 px-4 border border-transparent rounded-xl shadow-xs text-white bg-emerald-600 hover:bg-emerald-700 font-bold text-sm transition-all disabled:opacity-75 cursor-pointer mt-6">
               {loading ? (
                 <span className="flex items-center">
                   <BiLoaderAlt className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" />
@@ -174,12 +174,12 @@ const LoginPage = () => {
             </button>
           </div>
 
-          <div className="mt-8 text-center border-t border-zinc-100 pt-6">
+          <div className="mt-8 text-center border-t border-zinc-200 pt-6">
             <p className="text-zinc-500 text-sm font-medium">
               Don't have an account?{" "}
               <Link
                 to="/register"
-                className="text-indigo-600 hover:text-indigo-800 font-bold transition-colors">
+                className="text-emerald-600 hover:text-emerald-800 font-bold transition-colors">
                 Create account
               </Link>
             </p>

@@ -51,7 +51,7 @@ const ExpenseList = ({ expenses, setExpenses }) => {
           expenses.map((expense) => (
             <div  
               key={expense._id}
-              className="bg-white rounded-2xl shadow-sm p-5 border border-zinc-200 border-l-4 border-l-rose-500">
+              className="bg-white rounded-2xl shadow-sm p-5 border border-zinc-200 border-l-4 border-l-zinc-800">
               {editingId === expense._id ? (
                 <div className="space-y-4">
                   <div className="flex flex-col">
@@ -62,7 +62,7 @@ const ExpenseList = ({ expenses, setExpenses }) => {
                       onChange={(e) =>
                         setEditData({ ...editData, date: e.target.value })
                       }
-                      className="w-full px-3.5 py-2.5 bg-zinc-50 focus:bg-white border border-zinc-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-all text-sm text-zinc-800"
+                      className="w-full px-3.5 py-2.5 bg-zinc-50 focus:bg-white border border-zinc-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all text-sm text-zinc-800"
                     />
                   </div>
                   <div className="flex flex-col">
@@ -77,7 +77,7 @@ const ExpenseList = ({ expenses, setExpenses }) => {
                           category: e.target.value,
                         })
                       }
-                      className="w-full px-3.5 py-2.5 bg-zinc-50 focus:bg-white border border-zinc-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-all text-sm text-zinc-800">
+                      className="w-full px-3.5 py-2.5 bg-zinc-50 focus:bg-white border border-zinc-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all text-sm text-zinc-800">
                       <option value="">Select category</option>
                       <option value="Food">Food</option>
                       <option value="Transport">Transport</option>
@@ -101,7 +101,7 @@ const ExpenseList = ({ expenses, setExpenses }) => {
                           description: e.target.value,
                         })
                       }
-                      className="w-full px-3.5 py-2.5 bg-zinc-50 focus:bg-white border border-zinc-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-all text-sm text-zinc-800"
+                      className="w-full px-3.5 py-2.5 bg-zinc-50 focus:bg-white border border-zinc-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all text-sm text-zinc-800"
                     />
                   </div>
                   <div className="flex flex-col">
@@ -117,18 +117,18 @@ const ExpenseList = ({ expenses, setExpenses }) => {
                           amount: e.target.value,
                         })
                       }
-                      className="w-full px-3.5 py-2.5 bg-zinc-50 focus:bg-white border border-zinc-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-all text-sm text-zinc-800"
+                      className="w-full px-3.5 py-2.5 bg-zinc-50 focus:bg-white border border-zinc-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all text-sm text-zinc-800"
                     />
                   </div>
                   <div className="flex justify-end gap-3 mt-4">
                     <button
                       onClick={handleSave}
-                      className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-4 py-2 rounded-xl text-sm transition-all shadow-xs cursor-pointer">
+                      className="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-4 py-2 rounded-xl text-sm transition-all shadow-xs cursor-pointer">
                       Save
                     </button>
                     <button
                       onClick={handleCancel}
-                      className="bg-white hover:bg-zinc-50 text-zinc-700 border border-zinc-300 font-semibold px-4 py-2 rounded-xl text-sm transition-all shadow-xs cursor-pointer">
+                      className="bg-white hover:bg-zinc-50 text-zinc-700 border border-zinc-200 font-semibold px-4 py-2 rounded-xl text-sm transition-all shadow-xs cursor-pointer">
                       Cancel
                     </button>
                   </div>
@@ -149,15 +149,15 @@ const ExpenseList = ({ expenses, setExpenses }) => {
                   <p className="text-zinc-600 text-sm mb-4 leading-relaxed">
                     {expense.description || "—"}
                   </p>
-                  <div className="flex justify-end gap-3 border-t border-zinc-100 pt-3">
+                  <div className="flex justify-end gap-3 border-t border-zinc-200 pt-3">
                     <button
                       onClick={() => handleEdit(expense)}
-                      className="bg-white hover:bg-zinc-50 text-zinc-700 border border-zinc-300 font-semibold px-3 py-1.5 text-xs rounded-lg transition-all shadow-xs cursor-pointer">
+                      className="bg-white hover:bg-zinc-50 text-zinc-700 border border-zinc-200 font-semibold px-3 py-1.5 text-xs rounded-lg transition-all shadow-xs cursor-pointer">
                       Edit
                     </button>
                     <button
                       onClick={() => handleDelete(expense._id)}
-                      className="bg-white hover:bg-red-50 text-red-600 border border-red-200 font-semibold px-3 py-1.5 text-xs rounded-lg transition-all shadow-xs cursor-pointer">
+                      className="bg-white hover:bg-red-50 text-red-600 border border-zinc-200 font-semibold px-3 py-1.5 text-xs rounded-lg transition-all shadow-xs cursor-pointer">
                       Delete
                     </button>
                   </div>
@@ -183,7 +183,7 @@ const ExpenseList = ({ expenses, setExpenses }) => {
               <th className="py-4 px-6 text-right font-semibold">Actions</th>
             </tr>
           </thead>
-          <tbody className="text-zinc-700 text-sm divide-y divide-zinc-100">
+          <tbody className="text-zinc-700 text-sm divide-y divide-zinc-200">
             {expenses.length === 0 ? (
               <tr>
                 <td colSpan="5" className="py-8 text-center text-zinc-400 font-medium">
@@ -204,7 +204,7 @@ const ExpenseList = ({ expenses, setExpenses }) => {
                           onChange={(e) =>
                             setEditData({ ...editData, date: e.target.value })
                           }
-                          className="w-full px-3 py-2 bg-zinc-50 focus:bg-white border border-zinc-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-all text-sm text-zinc-800"
+                          className="w-full px-3 py-2 bg-zinc-50 focus:bg-white border border-zinc-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all text-sm text-zinc-800"
                         />
                       </td>
                       <td className="py-3 px-4">
@@ -216,7 +216,7 @@ const ExpenseList = ({ expenses, setExpenses }) => {
                               category: e.target.value,
                             })
                           }
-                          className="w-full px-3 py-2 bg-zinc-50 focus:bg-white border border-zinc-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-all text-sm text-zinc-800">
+                          className="w-full px-3 py-2 bg-zinc-50 focus:bg-white border border-zinc-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all text-sm text-zinc-800">
                           <option value="">Select category</option>
                           <option value="Food">Food</option>
                           <option value="Transport">Transport</option>
@@ -237,7 +237,7 @@ const ExpenseList = ({ expenses, setExpenses }) => {
                               description: e.target.value,
                             })
                           }
-                          className="w-full px-3 py-2 bg-zinc-50 focus:bg-white border border-zinc-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-all text-sm text-zinc-800"
+                          className="w-full px-3 py-2 bg-zinc-50 focus:bg-white border border-zinc-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all text-sm text-zinc-800"
                         />
                       </td>
                       <td className="py-3 px-4">
@@ -250,18 +250,18 @@ const ExpenseList = ({ expenses, setExpenses }) => {
                               amount: e.target.value,
                             })
                           }
-                          className="w-full px-3 py-2 bg-zinc-50 focus:bg-white border border-zinc-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-all text-sm text-zinc-800"
+                          className="w-full px-3 py-2 bg-zinc-50 focus:bg-white border border-zinc-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all text-sm text-zinc-800"
                         />
                       </td>
                       <td className="py-3 px-6 flex justify-end gap-2 items-center">
                         <button
                           onClick={handleSave}
-                          className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-4 py-2 rounded-xl text-sm transition-all shadow-xs cursor-pointer">
+                          className="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-4 py-2 rounded-xl text-sm transition-all shadow-xs cursor-pointer">
                           Save
                         </button>
                         <button
                           onClick={handleCancel}
-                          className="bg-white hover:bg-zinc-50 text-zinc-700 border border-zinc-300 font-semibold px-4 py-2 rounded-xl text-sm transition-all shadow-xs cursor-pointer">
+                          className="bg-white hover:bg-zinc-50 text-zinc-700 border border-zinc-200 font-semibold px-4 py-2 rounded-xl text-sm transition-all shadow-xs cursor-pointer">
                           Cancel
                         </button>
                       </td>
@@ -283,12 +283,12 @@ const ExpenseList = ({ expenses, setExpenses }) => {
                       <td className="py-4 px-6 flex justify-end gap-2">
                         <button
                           onClick={() => handleEdit(expense)}
-                          className="bg-white hover:bg-zinc-50 text-zinc-700 border border-zinc-300 font-semibold px-3.5 py-1.5 rounded-xl text-sm transition-all shadow-xs cursor-pointer">
+                          className="bg-white hover:bg-zinc-50 text-zinc-700 border border-zinc-200 font-semibold px-3.5 py-1.5 rounded-xl text-sm transition-all shadow-xs cursor-pointer">
                           Edit
                         </button>
                         <button
                           onClick={() => handleDelete(expense._id)}
-                          className="bg-white hover:bg-red-50 text-red-600 border border-red-200 font-semibold px-3.5 py-1.5 rounded-xl text-sm transition-all shadow-xs cursor-pointer">
+                          className="bg-white hover:bg-red-50 text-red-600 border border-zinc-200 font-semibold px-3.5 py-1.5 rounded-xl text-sm transition-all shadow-xs cursor-pointer">
                           Delete
                         </button>
                       </td>

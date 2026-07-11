@@ -60,7 +60,7 @@ const IncomeReport = () => {
       value: `Rs. ${monthlyData
         .reduce((sum, item) => sum + item.totalIncome, 0)
         .toLocaleString()}`,
-      icon: <FaRupeeSign className="text-xl text-indigo-600" />,
+      icon: <FaRupeeSign className="text-xl text-emerald-600" />,
       color: "bg-white border-zinc-200",
     },
     {
@@ -73,7 +73,7 @@ const IncomeReport = () => {
             ).toFixed(2)
           : 0
       }`,
-      icon: <FaChartBar className="text-xl text-indigo-600" />,
+      icon: <FaChartBar className="text-xl text-emerald-600" />,
       color: "bg-white border-zinc-200",
     },
     {
@@ -83,13 +83,13 @@ const IncomeReport = () => {
           ? categoryData.sort((a, b) => b.totalIncome - a.totalIncome)[0]?._id
               ?.category || "N/A"
           : "N/A",
-      icon: <FaMedal className="text-xl text-indigo-600" />,
+      icon: <FaMedal className="text-xl text-emerald-600" />,
       color: "bg-white border-zinc-200",
     },
     {
       title: "Months Tracked",
       value: monthlyData.length,
-      icon: <FaCalendarAlt className="text-xl text-indigo-600" />,
+      icon: <FaCalendarAlt className="text-xl text-emerald-600" />,
       color: "bg-white border-zinc-200",
     },
   ];
@@ -99,7 +99,7 @@ const IncomeReport = () => {
       {loading ? (
         <div className="flex items-center justify-center h-64">
           <div className="flex flex-col items-center">
-            <div className="h-12 w-12 border-4 border-indigo-600 border-t-transparent rounded-full animate-spin"></div>
+            <div className="h-12 w-12 border-4 border-zinc-200 border-t-zinc-800 rounded-full animate-spin"></div>
             <p className="mt-4 text-zinc-500 font-medium">
               Loading your income data...
             </p>
@@ -107,7 +107,7 @@ const IncomeReport = () => {
         </div>
       ) : error ? (
         <div className="my-8">
-          <div className="bg-red-50 text-red-600 p-6 rounded-2xl text-center border border-red-200">
+          <div className="bg-red-50 text-red-600 p-6 rounded-2xl text-center border border-zinc-200">
             <svg
               className="w-12 h-12 mx-auto text-red-500 mb-4"
               fill="none"
@@ -131,7 +131,7 @@ const IncomeReport = () => {
             {summaryCards.map((card, index) => (
               <div
                 key={index}
-                className={`${card.color} p-6 rounded-2xl border shadow-sm transition-all hover:shadow-md hover:border-zinc-300 flex items-center justify-between`}>
+                className={`${card.color} p-6 rounded-2xl border shadow-sm transition-all hover:shadow-md hover:border-zinc-250 flex items-center justify-between`}>
                 <div>
                   <p className="text-zinc-500 text-sm font-medium">
                     {card.title}
@@ -140,7 +140,7 @@ const IncomeReport = () => {
                     {card.value}
                   </p>
                 </div>
-                <div className="p-3 bg-zinc-50 rounded-xl border border-zinc-100">
+                <div className="p-3 bg-zinc-50 rounded-xl border border-zinc-200">
                   {card.icon}
                 </div>
               </div>
@@ -153,7 +153,7 @@ const IncomeReport = () => {
                 onClick={() => setActiveTab("monthly")}
                 className={`px-6 py-4 text-sm font-semibold whitespace-nowrap transition-all border-b-2 cursor-pointer ${
                   activeTab === "monthly"
-                    ? "border-indigo-600 text-indigo-600"
+                    ? "border-zinc-800 text-emerald-600"
                     : "border-transparent text-zinc-500 hover:text-zinc-800"
                 }`}>
                 Monthly Income
@@ -162,7 +162,7 @@ const IncomeReport = () => {
                 onClick={() => setActiveTab("category")}
                 className={`px-6 py-4 text-sm font-semibold whitespace-nowrap transition-all border-b-2 cursor-pointer ${
                   activeTab === "category"
-                    ? "border-indigo-600 text-indigo-600"
+                    ? "border-zinc-800 text-emerald-600"
                     : "border-transparent text-zinc-500 hover:text-zinc-800"
                 }`}>
                 Categories
@@ -171,7 +171,7 @@ const IncomeReport = () => {
                 onClick={() => setActiveTab("trends")}
                 className={`px-6 py-4 text-sm font-semibold whitespace-nowrap transition-all border-b-2 cursor-pointer ${
                   activeTab === "trends"
-                    ? "border-indigo-600 text-indigo-600"
+                    ? "border-zinc-800 text-emerald-600"
                     : "border-transparent text-zinc-500 hover:text-zinc-800"
                 }`}>
                 Income Trends
@@ -180,7 +180,7 @@ const IncomeReport = () => {
                 onClick={() => setActiveTab("data")}
                 className={`px-6 py-4 text-sm font-semibold whitespace-nowrap transition-all border-b-2 cursor-pointer ${
                   activeTab === "data"
-                    ? "border-indigo-600 text-indigo-600"
+                    ? "border-zinc-800 text-emerald-600"
                     : "border-transparent text-zinc-500 hover:text-zinc-800"
                 }`}>
                 Raw Data
@@ -195,7 +195,7 @@ const IncomeReport = () => {
                       Monthly Income
                     </h2>
                     <select
-                      className="border border-zinc-300 rounded-xl px-3 py-2 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/50"
+                      className="border border-zinc-200 rounded-xl px-3 py-2 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
                       value={yearFilter}
                       onChange={(e) => setYearFilter(e.target.value)}>
                       <option value="all">All Years</option>

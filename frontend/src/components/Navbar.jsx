@@ -83,7 +83,7 @@ const Navbar = ({ setShowModal }) => {
               className={({ isActive }) =>
                 `px-3.5 py-2 rounded-xl text-sm font-semibold transition-all ${
                   isActive
-                    ? "bg-indigo-50/50 text-indigo-600 border border-zinc-200/40 shadow-xs"
+                    ? "bg-emerald-50/50 text-emerald-600 border border-zinc-200 shadow-xs"
                     : "text-zinc-600 hover:text-zinc-950 hover:bg-zinc-50"
                 }`
               }>
@@ -98,7 +98,7 @@ const Navbar = ({ setShowModal }) => {
                   className={({ isActive }) =>
                     `px-3.5 py-2 rounded-xl text-sm font-semibold transition-all ${
                       isActive
-                        ? "bg-indigo-50/50 text-indigo-600 border border-zinc-200/40 shadow-xs"
+                        ? "bg-emerald-50/50 text-emerald-600 border border-zinc-200 shadow-xs"
                         : "text-zinc-600 hover:text-zinc-950 hover:bg-zinc-50"
                     }`
                   }>
@@ -107,8 +107,8 @@ const Navbar = ({ setShowModal }) => {
                 <NavLink
                   to="/profile"
                   className={({ isActive }) =>
-                    `flex items-center justify-center w-9 h-9 rounded-full bg-indigo-600 text-white font-extrabold text-xs hover:opacity-90 transition-all border border-indigo-200 shadow-xs ${
-                      isActive ? "ring-2 ring-indigo-500/35" : ""
+                    `flex items-center justify-center w-9 h-9 rounded-full bg-emerald-600 text-white font-extrabold text-xs hover:opacity-90 transition-all border border-zinc-200 shadow-xs ${
+                      isActive ? "ring-2 ring-emerald-500/35" : ""
                     }`
                   }>
                   {getTrimmedName()}
@@ -150,7 +150,7 @@ const Navbar = ({ setShowModal }) => {
           isMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}>
         <div className="flex flex-col h-full p-6">
-          <div className="flex justify-between items-center mb-8 border-b border-zinc-100 pb-4">
+          <div className="flex justify-between items-center mb-8 border-b border-zinc-200 pb-4">
             <span className="text-lg font-black text-zinc-950">Menu</span>
             <button
               onClick={toggleMenu}
@@ -188,7 +188,7 @@ const Navbar = ({ setShowModal }) => {
                     className={({ isActive }) =>
                       `block py-3 px-4 rounded-xl text-sm font-semibold transition-all ${
                         isActive
-                          ? "bg-indigo-50/70 text-indigo-600"
+                          ? "bg-emerald-50/70 text-emerald-600"
                           : "text-zinc-500 hover:bg-zinc-50 hover:text-zinc-900"
                       }`
                     }
@@ -213,7 +213,7 @@ const Navbar = ({ setShowModal }) => {
                     className={({ isActive }) =>
                       `block py-3 px-4 rounded-xl text-sm font-semibold transition-all ${
                         isActive
-                          ? "bg-indigo-50/70 text-indigo-600"
+                          ? "bg-emerald-50/70 text-emerald-600"
                           : "text-zinc-500 hover:bg-zinc-50 hover:text-zinc-900"
                       }`
                     }
@@ -227,7 +227,7 @@ const Navbar = ({ setShowModal }) => {
                     className={({ isActive }) =>
                       `block py-3 px-4 rounded-xl text-sm font-semibold transition-all ${
                         isActive
-                          ? "bg-indigo-50/70 text-indigo-600"
+                          ? "bg-emerald-50/70 text-emerald-600"
                           : "text-zinc-500 hover:bg-zinc-50 hover:text-zinc-900"
                       }`
                     }
@@ -241,7 +241,7 @@ const Navbar = ({ setShowModal }) => {
                     className={({ isActive }) =>
                       `block py-3 px-4 rounded-xl text-sm font-semibold transition-all ${
                         isActive
-                          ? "bg-indigo-50/70 text-indigo-600"
+                          ? "bg-emerald-50/70 text-emerald-600"
                           : "text-zinc-500 hover:bg-zinc-50 hover:text-zinc-900"
                       }`
                     }
@@ -255,7 +255,7 @@ const Navbar = ({ setShowModal }) => {
                     className={({ isActive }) =>
                       `block py-3 px-4 rounded-xl text-sm font-semibold transition-all ${
                         isActive
-                          ? "bg-indigo-50/70 text-indigo-600"
+                          ? "bg-emerald-50/70 text-emerald-600"
                           : "text-zinc-500 hover:bg-zinc-50 hover:text-zinc-900"
                       }`
                     }
@@ -267,7 +267,7 @@ const Navbar = ({ setShowModal }) => {
 
               <button
                 onClick={handleLogout}
-                className="mt-6 w-full bg-rose-50 text-rose-600 border border-rose-100 hover:bg-rose-100 py-3 rounded-xl transition-all shadow-xs text-sm font-bold cursor-pointer">
+                className="mt-6 w-full bg-rose-50 text-rose-600 border border-zinc-200 hover:bg-rose-100 py-3 rounded-xl transition-all shadow-xs text-sm font-bold cursor-pointer">
                 Logout
               </button>
             </>

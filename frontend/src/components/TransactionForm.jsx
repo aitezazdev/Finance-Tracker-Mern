@@ -120,7 +120,7 @@ const TransactionForm = ({ onClose, setExpenses, setIncomes, setActiveTab }) => 
           name="type"
           value={formData.type}
           onChange={handleChange}
-          className="w-full px-4 py-3 bg-zinc-50 focus:bg-white border border-zinc-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-all text-sm font-semibold text-zinc-700 cursor-pointer"
+          className="w-full px-4 py-3 bg-zinc-50 focus:bg-white border border-zinc-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all text-sm font-semibold text-zinc-700 cursor-pointer"
         >
           <option value="expense">Expense</option>
           <option value="income">Income</option>
@@ -137,7 +137,7 @@ const TransactionForm = ({ onClose, setExpenses, setIncomes, setActiveTab }) => 
           value={formData.amount}
           onChange={handleChange}
           placeholder="Enter amount"
-          className="w-full px-4 py-3 bg-zinc-50 focus:bg-white border border-zinc-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-all text-sm font-semibold text-zinc-800"
+          className="w-full px-4 py-3 bg-zinc-50 focus:bg-white border border-zinc-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all text-sm font-semibold text-zinc-800"
         />
         {errors.amount && <p className="mt-1.5 text-xs font-semibold text-red-500">{errors.amount}</p>}
       </div>
@@ -150,7 +150,7 @@ const TransactionForm = ({ onClose, setExpenses, setIncomes, setActiveTab }) => 
           name="category"
           value={formData.category}
           onChange={handleChange}
-          className="w-full px-4 py-3 bg-zinc-50 focus:bg-white border border-zinc-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-all text-sm font-semibold text-zinc-700 cursor-pointer"
+          className="w-full px-4 py-3 bg-zinc-50 focus:bg-white border border-zinc-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all text-sm font-semibold text-zinc-700 cursor-pointer"
         >
           <option value="">Select category</option>
           {availableCategories.map((cat) => (
@@ -171,7 +171,7 @@ const TransactionForm = ({ onClose, setExpenses, setIncomes, setActiveTab }) => 
           name="date"
           value={formData.date}
           onChange={handleChange}
-          className="w-full px-4 py-3 bg-zinc-50 focus:bg-white border border-zinc-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-all text-sm font-semibold text-zinc-800"
+          className="w-full px-4 py-3 bg-zinc-50 focus:bg-white border border-zinc-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all text-sm font-semibold text-zinc-800"
         />
         {errors.date && <p className="mt-1.5 text-xs font-semibold text-red-500">{errors.date}</p>}
       </div>
@@ -187,13 +187,13 @@ const TransactionForm = ({ onClose, setExpenses, setIncomes, setActiveTab }) => 
           value={formData.description}
           onChange={handleChange}
           placeholder="Optional description"
-          className="w-full px-4 py-3 bg-zinc-50 focus:bg-white border border-zinc-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-all text-sm font-semibold text-zinc-800"
+          className="w-full px-4 py-3 bg-zinc-50 focus:bg-white border border-zinc-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all text-sm font-semibold text-zinc-800"
         />
       </div>
 
       <button
         type="submit"
-        className="w-full mt-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3.5 rounded-xl shadow-md hover:shadow-lg transition-all cursor-pointer text-sm"
+        className="w-full mt-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 rounded-xl shadow-md hover:shadow-lg transition-all cursor-pointer text-sm"
       >
         Add {formData.type === "income" ? "Income" : "Expense"}
       </button>

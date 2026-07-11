@@ -76,7 +76,7 @@ const Transactions = () => {
             </p>
           </div>
           
-          <div className="inline-flex p-1 bg-zinc-200/80 rounded-xl shadow-xs border border-zinc-300/40">
+          <div className="inline-flex p-1 bg-zinc-200/80 rounded-xl shadow-xs border border-zinc-200">
             <button
               onClick={() => setActiveTab("Expenses")}
               className={`px-5 py-2.5 rounded-lg text-sm font-semibold transition-all cursor-pointer ${

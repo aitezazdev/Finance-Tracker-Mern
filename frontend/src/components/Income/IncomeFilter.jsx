@@ -19,7 +19,7 @@ const IncomeFilter = ({ filter, setFilter }) => {
         <select
           value={filter.category}
           onChange={handleCategoryChange}
-          className="w-1/2 px-4 py-2.5 bg-zinc-50 focus:bg-white border border-zinc-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-all text-sm font-semibold text-zinc-700 cursor-pointer">
+          className="w-1/2 px-4 py-2.5 bg-zinc-50 focus:bg-white border border-zinc-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all text-sm font-semibold text-zinc-700 cursor-pointer">
           <option value="">Select category</option>
           <option value="Salary">Salary</option>
           <option value="Freelance">Freelance</option>
@@ -32,7 +32,7 @@ const IncomeFilter = ({ filter, setFilter }) => {
         <select
           value={filter.sortByAmount}
           onChange={handleSortChange}
-          className="w-1/2 px-4 py-2.5 bg-zinc-50 focus:bg-white border border-zinc-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-all text-sm font-semibold text-zinc-700 cursor-pointer">
+          className="w-1/2 px-4 py-2.5 bg-zinc-50 focus:bg-white border border-zinc-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all text-sm font-semibold text-zinc-700 cursor-pointer">
           <option value="">Sort by Amount</option>
           <option value="asc">Lowest to Highest</option>
           <option value="desc">Highest to Lowest</option>
@@ -41,7 +41,7 @@ const IncomeFilter = ({ filter, setFilter }) => {
 
       <button
         onClick={resetFilters}
-        className="w-full sm:w-auto bg-white hover:bg-zinc-50 text-zinc-700 border border-zinc-300 px-5 py-2.5 rounded-xl text-sm font-semibold transition-all shadow-xs cursor-pointer">
+        className="w-full sm:w-auto bg-white hover:bg-zinc-50 text-zinc-700 border border-zinc-200 px-5 py-2.5 rounded-xl text-sm font-semibold transition-all shadow-xs cursor-pointer">
         Reset Filters
       </button>
     </div>

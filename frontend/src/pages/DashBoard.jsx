@@ -61,7 +61,7 @@ const Dashboard = ({
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-10">
-          <div className="bg-white p-6 rounded-2xl border border-zinc-200 shadow-sm border-l-4 border-l-emerald-500">
+          <div className="bg-white p-6 rounded-2xl border border-zinc-200 shadow-sm border-l-4 border-l-zinc-800">
             <h3 className="text-zinc-500 text-xs font-bold uppercase tracking-wider">
               Total Income
             </h3>
@@ -70,7 +70,7 @@ const Dashboard = ({
             </p>
           </div>
 
-          <div className="bg-white p-6 rounded-2xl border border-zinc-200 shadow-sm border-l-4 border-l-rose-500">
+          <div className="bg-white p-6 rounded-2xl border border-zinc-200 shadow-sm border-l-4 border-l-zinc-800">
             <h3 className="text-zinc-500 text-xs font-bold uppercase tracking-wider">
               Total Expenses
             </h3>
@@ -79,11 +79,11 @@ const Dashboard = ({
             </p>
           </div>
 
-          <div className="bg-white p-6 rounded-2xl border border-zinc-200 shadow-sm border-l-4 border-l-indigo-600">
+          <div className="bg-white p-6 rounded-2xl border border-zinc-200 shadow-sm border-l-4 border-l-zinc-800">
             <h3 className="text-zinc-500 text-xs font-bold uppercase tracking-wider">
               Remaining Balance
             </h3>
-            <p className="text-3xl font-black text-indigo-600 mt-2">
+            <p className="text-3xl font-black text-emerald-600 mt-2">
               Rs. {summaryData.balance.toLocaleString()}
             </p>
           </div>
@@ -103,9 +103,7 @@ const Dashboard = ({
               recentTransactions.map((transaction) => (
                 <div  
                   key={transaction._id}
-                  className={`bg-white rounded-2xl border border-zinc-200 shadow-sm p-5 border-l-4 ${
-                    transaction.type === 'income' ? 'border-l-emerald-500' : 'border-l-rose-500'
-                  }`}>
+                  className="bg-white rounded-2xl border border-zinc-200 shadow-sm p-5 border-l-4 border-l-zinc-800">
                   <div className="flex justify-between items-center mb-3">
                     <span className={`font-extrabold text-lg ${
                       transaction.type === 'income' ? 'text-emerald-600' : 'text-rose-600'
@@ -145,7 +143,7 @@ const Dashboard = ({
                   <th className="py-4 px-6 font-semibold text-right">Amount (Rs)</th>
                 </tr>
               </thead>
-              <tbody className="text-zinc-700 text-sm divide-y divide-zinc-100">
+              <tbody className="text-zinc-700 text-sm divide-y divide-zinc-200">
                 {recentTransactions.length === 0 ? (
                   <tr>
                     <td colSpan="5" className="py-8 text-center text-zinc-400 font-medium">

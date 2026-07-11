@@ -76,23 +76,23 @@ const Profile = () => {
   return (
     <div className="max-w-lg mx-auto mt-28 p-8 sm:p-10 bg-white rounded-3xl shadow-sm border border-zinc-200 space-y-8">
       <div className="flex items-center space-x-6">
-        <div className="w-16 h-16 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-600 flex items-center justify-center text-2xl font-black shadow-xs select-none">
+        <div className="w-16 h-16 rounded-full bg-emerald-50 border border-zinc-200 text-emerald-600 flex items-center justify-center text-2xl font-black shadow-xs select-none">
           {getInitials(userData.name)}
         </div>
         <div className="flex-1">
           {isEditing ? (
             <div className="space-y-2">
               <input
-                className="w-full px-4 py-2.5 bg-zinc-50 focus:bg-white border border-zinc-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-all text-sm font-semibold text-zinc-800"
+                className="w-full px-4 py-2.5 bg-zinc-50 focus:bg-white border border-zinc-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all text-sm font-semibold text-zinc-800"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               />
               <input
                 className={`w-full px-4 py-2.5 bg-zinc-50 focus:bg-white border ${
                   error.toLowerCase().includes("email")
-                    ? "border-rose-500"
-                    : "border-zinc-300"
-                } rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/50 transition-all text-sm font-semibold text-zinc-800`}
+                    ? "border-zinc-800"
+                    : "border-zinc-200"
+                } rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all text-sm font-semibold text-zinc-800`}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
@@ -111,7 +111,7 @@ const Profile = () => {
         </div>
       </div>
 
-      <hr className="border-t border-zinc-100" />
+      <hr className="border-t border-zinc-200" />
 
       <div>
         <p className="text-xs font-semibold text-zinc-400 uppercase tracking-wider">
@@ -131,7 +131,7 @@ const Profile = () => {
           <>
             <button
               onClick={handleSave}
-              className="flex-1 px-5 py-3 cursor-pointer bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition shadow-xs text-sm">
+              className="flex-1 px-5 py-3 cursor-pointer bg-emerald-600 text-white font-bold rounded-xl hover:bg-emerald-700 transition shadow-xs text-sm">
               Save Changes
             </button>
             <button
@@ -141,7 +141,7 @@ const Profile = () => {
                 setEmail(userData.email);
                 setError("");
               }}
-              className="flex-1 px-5 py-3 cursor-pointer bg-white text-zinc-700 border border-zinc-300 font-bold rounded-xl hover:bg-zinc-50 transition shadow-xs text-sm">
+              className="flex-1 px-5 py-3 cursor-pointer bg-white text-zinc-700 border border-zinc-200 font-bold rounded-xl hover:bg-zinc-50 transition shadow-xs text-sm">
               Cancel
             </button>
           </>
@@ -149,12 +149,12 @@ const Profile = () => {
           <>
             <button
               onClick={() => setIsEditing(true)}
-              className="flex-1 px-5 py-3 cursor-pointer bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition shadow-xs text-sm">
+              className="flex-1 px-5 py-3 cursor-pointer bg-emerald-600 text-white font-bold rounded-xl hover:bg-emerald-700 transition shadow-xs text-sm">
               Edit Profile
             </button>
             <button
               onClick={() => setShowDeleteConfirm(true)}
-              className="flex-1 px-5 py-3 cursor-pointer bg-rose-50 text-rose-600 border border-rose-100 font-bold rounded-xl hover:bg-rose-100 transition shadow-xs text-sm">
+              className="flex-1 px-5 py-3 cursor-pointer bg-rose-50 text-rose-600 border border-zinc-200 font-bold rounded-xl hover:bg-rose-100 transition shadow-xs text-sm">
               Delete Account
             </button>
           </>
@@ -177,7 +177,7 @@ const Profile = () => {
             <div className="flex justify-center gap-3 pt-2">
               <button
                 onClick={() => setShowDeleteConfirm(false)}
-                className="px-5 py-2.5 rounded-xl bg-white hover:bg-zinc-50 text-zinc-700 border border-zinc-300 font-bold text-sm cursor-pointer shadow-xs">
+                className="px-5 py-2.5 rounded-xl bg-white hover:bg-zinc-50 text-zinc-700 border border-zinc-200 font-bold text-sm cursor-pointer shadow-xs">
                 Cancel
               </button>
               <button
