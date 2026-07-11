@@ -8,9 +8,9 @@ export default function HomePage() {
   const { user } = useSelector((state) => state.auth);
 
   return (
-    <div className="min-h-screen pt-10 text-gray-900 bg-gradient-to-b from-white via-gray-50 to-gray-100 font-sans">
+    <div className="min-h-screen pt-10 text-gray-900 bg-gray-50 font-sans">
       <section className="relative flex items-center justify-center h-[90vh] px-6 text-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-tr from-indigo-100 via-purple-100 to-pink-100 opacity-40 -z-10"></div>
+        <div className="absolute inset-0 bg-indigo-50 opacity-40 -z-10"></div>
         <div className="max-w-5xl space-y-8">
           <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight leading-tight text-gray-900 drop-shadow-lg">
             Track Your Expenses <br /> Like Never Before
@@ -22,14 +22,14 @@ export default function HomePage() {
             {!user ? (
               <Link
                 to="/register"
-                className="inline-block bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-purple-600 hover:to-indigo-600 text-white font-semibold px-8 py-4 rounded-xl shadow-xl transition-transform transform hover:-translate-y-1 focus:outline-none focus:ring-4 focus:ring-indigo-300"
+                className="inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-8 py-4 rounded-xl shadow-xl transition-transform transform hover:-translate-y-1 focus:outline-none focus:ring-4 focus:ring-indigo-300"
               >
                 Get Started Free
               </Link>
             ) : (
               <Link
                 to="/dashboard"
-                className="inline-block bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-blue-600 hover:to-cyan-600 text-white font-semibold px-8 py-4 rounded-xl shadow-xl transition-transform transform hover:-translate-y-1 focus:outline-none focus:ring-4 focus:ring-cyan-300"
+                className="inline-block bg-cyan-600 hover:bg-cyan-700 text-white font-semibold px-8 py-4 rounded-xl shadow-xl transition-transform transform hover:-translate-y-1 focus:outline-none focus:ring-4 focus:ring-cyan-300"
               >
                 Dashboard
               </Link>
@@ -78,7 +78,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="py-20 px-6 bg-gradient-to-b from-gray-50 to-white">
+      <section className="py-20 px-6 bg-gray-50">
         <div className="max-w-5xl mx-auto text-center">
           <h2 className="text-4xl font-extrabold mb-4 text-gray-900">
             How It Works – Simple & Effective
@@ -93,24 +93,24 @@ export default function HomePage() {
                 step: "01",
                 title: "Create Account",
                 desc: "Sign up and choose your currency, language, and theme — get started in seconds.",
-                color: "from-indigo-500 to-indigo-700",
+                color: "bg-indigo-600",
               },
               {
                 step: "02",
                 title: "Add Transactions",
                 desc: "Add income and expenses manually or set them to auto-repeat for bills or salary.",
-                color: "from-purple-500 to-purple-700",
+                color: "bg-purple-600",
               },
               {
                 step: "03",
                 title: "See Reports",
                 desc: "Check dashboard, budget usage, and charts — know where your money goes easily.",
-                color: "from-blue-500 to-blue-700",
+                color: "bg-blue-600",
               },
             ].map(({ step, title, desc, color }) => (
               <div key={step} className="relative bg-white rounded-2xl shadow-lg border border-gray-200 hover:shadow-2xl transition-shadow duration-300 px-8 pt-20 pb-10 text-left">
                 <div
-                  className={`absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 rounded-full bg-gradient-to-r ${color} flex items-center justify-center text-white text-2xl font-extrabold shadow-lg select-none`}
+                  className={`absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 rounded-full ${color} flex items-center justify-center text-white text-2xl font-extrabold shadow-lg select-none`}
                 >
                   {step}
                 </div>

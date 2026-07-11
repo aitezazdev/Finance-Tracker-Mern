@@ -76,7 +76,7 @@ const Profile = () => {
   return (
     <div className="max-w-lg mx-auto mt-24 p-8 bg-white rounded-3xl shadow-xl border border-gray-200 space-y-8">
       <div className="flex items-center space-x-5">
-        <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 text-white flex items-center justify-center text-2xl font-extrabold shadow-lg">
+        <div className="w-16 h-16 rounded-full bg-indigo-600 text-white flex items-center justify-center text-2xl font-extrabold shadow-lg">
           {getInitials(userData.name)}
         </div>
         <div className="flex-1">

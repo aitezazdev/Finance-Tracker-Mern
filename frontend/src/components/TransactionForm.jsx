@@ -193,7 +193,7 @@ const TransactionForm = ({ onClose, setExpenses, setIncomes, setActiveTab }) => 
 
       <button
         type="submit"
-        className="w-full bg-gradient-to-r from-indigo-600 to-purple-700 text-white py-3 rounded-xl shadow-lg hover:opacity-90 transition-all"
+        className="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded-xl shadow-lg transition-all"
       >
         Add {formData.type === "income" ? "Income" : "Expense"}
       </button>

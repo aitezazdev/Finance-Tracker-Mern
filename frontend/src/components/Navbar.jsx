@@ -175,7 +175,7 @@ const Navbar = () => {
               <div className="mb-6 p-4 bg-gray-100 rounded-lg">
                 <span className="text-gray-500 block mb-2">Logged in as</span>
                 <span className="text-gray-800 font-medium text-lg">
-                  👋 {user.name}
+                  Hello, {user.name}
                 </span>
               </div>
 
