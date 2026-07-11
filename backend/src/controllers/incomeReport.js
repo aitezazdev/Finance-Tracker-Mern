@@ -1,7 +1,7 @@
 import Income from "../models/income.model.js";
 import User from "../models/user.model.js";
 
-// for monthly summary
+
 const getIncomeMonthlySummary = async (req, res) => {
   try {
     const userID = req.user.id;
@@ -71,7 +71,7 @@ const getIncomeMonthlySummary = async (req, res) => {
   }
 };
 
-// for category wise summary
+
 const getIncomeCategorySummary = async (req, res) => {
   try {
     const userID = req.user.id;
@@ -139,7 +139,7 @@ const getIncomeCategorySummary = async (req, res) => {
   }
 };
 
-// for daily trends
+
 const getIncomeSpendingTrends = async (req, res) => {
   try {
     const userID = req.user.id;

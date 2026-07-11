@@ -1,7 +1,7 @@
 import Expense from "../models/expense.model.js";
 import User from "../models/user.model.js";
 
-// create expense
+
 const createExpense = async (req, res) => {
   try {
     const { amount, category, date, description } = req.body;
@@ -91,7 +91,7 @@ const createExpense = async (req, res) => {
   }
 };
 
-// delete expense
+
 const deleteExpense = async (req, res) => {
   try {
     const { id } = req.params;
@@ -128,7 +128,7 @@ const deleteExpense = async (req, res) => {
   }
 };
 
-// edit an expense
+
 const editExpense = async (req, res) => {
   try {
     const { amount, category, date, description } = req.body;
@@ -193,7 +193,7 @@ const editExpense = async (req, res) => {
   }
 };
 
-// get all expenses
+
 const getExpenses = async (req, res) => {
   try {
     const userID = req.user.id;

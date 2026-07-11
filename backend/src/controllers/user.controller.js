@@ -2,7 +2,7 @@ import User from "../models/user.model.js";
 import Income from "../models/income.model.js"
 import Expense from "../models/expense.model.js"
 
-// get profile info
+
 const getProfileInfo = async (req, res) => {
   try {
     const userId = req.user.id;
@@ -27,7 +27,7 @@ const getProfileInfo = async (req, res) => {
   }
 };
 
-// update user profile
+
 const updateUserProfile = async (req, res) => {
   try {
     const userId = req.user.id;
@@ -76,7 +76,7 @@ const updateUserProfile = async (req, res) => {
   }
 };
 
-// delete user account
+
 const deleteAccount = async (req, res) => {
   try {
     const userId = req.user.id;

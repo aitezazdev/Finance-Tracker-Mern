@@ -4,6 +4,7 @@ import { addIncome } from "../api/incomeApi";
 import toast from "react-hot-toast";
 
 const TransactionForm = ({ onClose, setExpenses, setIncomes, setActiveTab }) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState({});
   const [formData, setFormData] = useState({
     type: "expense",
@@ -69,6 +70,7 @@ const TransactionForm = ({ onClose, setExpenses, setIncomes, setActiveTab }) => 
     }
 
     try {
+      setIsSubmitting(true);
       if (formData.type === "income") {
         const response = await addIncome(formData);
         toast.success("Income added");
@@ -104,6 +106,8 @@ const TransactionForm = ({ onClose, setExpenses, setIncomes, setActiveTab }) => 
       onClose();
     } catch (error) {
       toast.error("Error adding transaction");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -193,9 +197,15 @@ const TransactionForm = ({ onClose, setExpenses, setIncomes, setActiveTab }) => 
 
       <button
         type="submit"
-        className="w-full mt-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 rounded-xl shadow-md hover:shadow-lg transition-all cursor-pointer text-sm"
+        disabled={isSubmitting}
+        className={`w-full mt-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 rounded-xl shadow-md hover:shadow-lg transition-all cursor-pointer text-sm flex items-center justify-center gap-2 ${
+          isSubmitting ? "opacity-75 cursor-not-allowed" : ""
+        }`}
       >
-        Add {formData.type === "income" ? "Income" : "Expense"}
+        {isSubmitting && (
+          <div className="h-4 w-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+        )}
+        {isSubmitting ? "Adding..." : `Add ${formData.type === "income" ? "Income" : "Expense"}`}
       </button>
     </form>
   );

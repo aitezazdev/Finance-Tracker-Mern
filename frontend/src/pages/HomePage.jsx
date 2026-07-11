@@ -9,7 +9,7 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen pt-16 text-zinc-900 bg-zinc-50 font-sans">
-      {/* Hero Section */}
+      {}
       <section className="relative flex items-center justify-center min-h-[85vh] px-6 text-center overflow-hidden border-b border-zinc-200 bg-white">
         <div className="absolute inset-0 bg-radial from-emerald-50/20 via-transparent to-transparent -z-10"></div>
         <div className="max-w-4xl space-y-8 py-12">
@@ -48,7 +48,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Features Section */}
+      {}
       <section className="py-24 px-6 bg-white border-b border-zinc-250/60">
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-extrabold text-zinc-950 tracking-tight">
@@ -91,7 +91,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* How It Works Section */}
+      {}
       <section className="py-24 px-6 bg-zinc-50 border-b border-zinc-200">
         <div className="max-w-5xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-extrabold text-zinc-950 tracking-tight">
@@ -133,7 +133,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Testimonials Section */}
+      {}
       <section className="py-24 px-6 bg-white">
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-extrabold text-zinc-950 tracking-tight">

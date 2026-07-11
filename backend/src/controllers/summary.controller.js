@@ -2,7 +2,7 @@ import Income from "../models/income.model.js";
 import Expense from "../models/expense.model.js";
 import User from "../models/user.model.js";
 
-// get financial summary like total income, total expense and balance
+
 const getFinancialSummary = async (req, res) => {
   try {
     const userId = req.user.id;
@@ -48,7 +48,7 @@ const getFinancialSummary = async (req, res) => {
   }
 };
 
-// 5 recent transactions (from incomes and expenses)
+
 const getRecentTransactions = async (req, res) => {
   try {
     const userId = req.user.id;

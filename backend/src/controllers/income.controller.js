@@ -1,7 +1,7 @@
 import Income from "../models/income.model.js";
 import User from "../models/user.model.js";
 
-// create Income
+
 const createIncome = async (req, res) => {
   try {
     const { amount, category, date, description } = req.body;
@@ -91,7 +91,7 @@ const createIncome = async (req, res) => {
   }
 };
 
-// delete Income
+
 const deleteIncome = async (req, res) => {
   try {
     const { id } = req.params;
@@ -128,7 +128,7 @@ const deleteIncome = async (req, res) => {
   }
 };
 
-// edit an Income
+
 const editIncome = async (req, res) => {
   try {
     const { amount, category, date, description } = req.body;
@@ -193,7 +193,7 @@ const editIncome = async (req, res) => {
   }
 };
 
-// get all Incomes
+
 const getIncomes = async (req, res) => {
   try {
     const userID = req.user.id;
