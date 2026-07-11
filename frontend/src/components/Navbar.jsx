@@ -73,7 +73,7 @@ const Navbar = ({ setShowModal }) => {
         <NavLink
           to="/"
           className="text-xl font-black tracking-tight flex items-center space-x-2 text-zinc-950">
-          <span>Expensely</span>
+          <span>Finance Tracker</span>
         </NavLink>
 
         <ul className="hidden md:flex items-center space-x-2 font-medium">

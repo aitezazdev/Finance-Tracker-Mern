@@ -78,8 +78,8 @@ const App = () => {
             }
           />
           <Route path="/profile" element={<Profile />} />
-          <Route path="/transactions" element={<Transactions />} />
-          <Route path="/analytics" element={<AnalyticsPage />} />
+          <Route path="/transactions" element={<Transactions setShowModal={setShowModal} />} />
+          <Route path="/analytics" element={<AnalyticsPage setShowModal={setShowModal} />} />
         </Route>
       </Routes>
       <TransactionModel

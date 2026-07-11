@@ -30,7 +30,7 @@ const Sidebar = ({ setShowModal }) => {
   return (
     <aside className="hidden md:flex w-64 min-h-screen fixed left-0 top-0 bg-white border-r border-zinc-200 flex-col z-10">
       <div className="px-6 py-6 border-b border-zinc-200">
-        <h1 className="text-xl font-black text-zinc-900 tracking-tight">Expensely</h1>
+        <h1 className="text-xl font-black text-zinc-900 tracking-tight">Finance Tracker</h1>
       </div>
 
       <nav className="flex-1 px-4 py-6">

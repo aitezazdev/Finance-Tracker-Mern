@@ -140,7 +140,7 @@ export default function HomePage() {
             Trusted by creators
           </h2>
           <p className="text-zinc-500 max-w-xl mx-auto mb-16 mt-3 text-sm font-semibold leading-relaxed">
-            Hear from developers, designers, and managers who utilize Expensely to keep their trackings clean.
+            Hear from developers, designers, and managers who utilize Finance Tracker to keep their trackings clean.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

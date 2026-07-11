@@ -8,10 +8,9 @@ import Sidebar from "../components/Sidebar";
 import IncomeList from "../components/Income/IncomeList";
 import IncomeFilter from "../components/Income/IncomeFilter";
 
-const Transactions = () => {
+const Transactions = ({ setShowModal }) => {
   const [expenses, setExpenses] = useState([]);
   const [incomes, setIncomes] = useState([]);
-  const [showModal, setShowModal] = useState(false);
   const [filter, setFilter] = useState({ category: "", sortByAmount: "" });
   const [activeTab, setActiveTab] = useState("Expenses");
 
@@ -65,7 +64,7 @@ const Transactions = () => {
     <div className="flex pt-16 min-h-screen bg-zinc-50">
       <Sidebar setShowModal={setShowModal} />
 
-      <div className="ml-0 md:ml-64 flex-1 p-6 sm:p-10 max-w-7xl">
+      <div className="ml-0 md:ml-64 flex-1 p-6 sm:p-10 max-w-7xl w-full min-w-0 overflow-x-hidden">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-6 border-b border-zinc-200 pb-6">
           <div>
             <h1 className="text-3xl font-extrabold text-zinc-900 tracking-tight">

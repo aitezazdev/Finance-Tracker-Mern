@@ -7,7 +7,7 @@ const Footer = () => {
     <footer className="bg-zinc-950 text-zinc-400 py-12 mt-16 border-t border-zinc-900">
       <div className="container mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-6">
         <div className="text-center sm:text-left">
-          <h4 className="text-lg font-black text-white tracking-tight">Expensely</h4>
+          <h4 className="text-lg font-black text-white tracking-tight">Finance Tracker</h4>
           <p className="text-sm text-zinc-500 mt-1 font-medium">Track your cash. Take control.</p>
         </div>
 
@@ -29,7 +29,7 @@ const Footer = () => {
             <FaLinkedin />
           </a>
           <a
-            href="mailto:zazcodes@gmail.com"
+            href="mailto:aitezazsikandar@gmail.com"
             className="p-2.5 rounded-xl bg-zinc-900 hover:bg-zinc-800 text-zinc-400 hover:text-white transition-all border border-zinc-800/60"
           >
             <FaEnvelope />
@@ -38,7 +38,7 @@ const Footer = () => {
       </div>
 
       <div className="mt-8 text-center text-xs text-zinc-600 font-semibold">
-        © {new Date().getFullYear()} Expensely. Some rights reserved.
+        © {new Date().getFullYear()} Finance Tracker. Some rights reserved.
       </div>
     </footer>
   );
